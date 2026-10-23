@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-canvas-width="1080" data-canvas-height="900">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小学二年级兴趣与习惯培养方案 · 语数英与钢琴</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E3A93E'/%3E%3Cpath d='M50 24c-12 0-20 8-20 19 0 8 5 13 11 15-1 5-4 9-8 11 9 1 16-2 20-9 3 4 8 6 14 6-3-3-5-7-5-11 6-2 9-7 9-13 0-11-8-18-21-18z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+:root{
+  --bg:#FAF7F1;
+  --ink:#2C2A26;
+  --ink-soft:#6E685F;
+  --ink-faint:#9B9488;
+  --paper:#FFFFFF;
+  --line:#EAE4D8;
+  --gold:#E3A93E;
+  --gold-soft:#F6E7C6;
+  --yuwen:#DE6B5E;
+  --yuwen-soft:#FBE7E4;
+  --shuxue:#3E7CAE;
+  --shuxue-soft:#E3EEF6;
+  --yingyu:#5AA676;
+  --yingyu-soft:#E4F2E9;
+  --gangqin:#8A68B0;
+  --gangqin-soft:#EEE8F5;
+  --radius:18px;
+  --shadow:0 6px 24px rgba(60,50,35,.06);
+  --serif:"Noto Serif SC", Georgia, "Songti SC", serif;
+  --sans:"Noto Sans SC", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+section{padding:74px 0;}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.3;font-weight:700;}
+
+/* 章节标题 */
+.sec-head{margin-bottom:46px;}
+.sec-kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--sans);font-size:13px;font-weight:500;
+  letter-spacing:.14em;color:var(--gold);
+  margin-bottom:14px;
+}
+.sec-kicker::before{content:"";width:26px;height:2px;background:var(--gold);border-radius:2px;}
+.sec-title{font-size:32px;font-weight:700;letter-spacing:.01em;}
+.sec-sub{margin-top:12px;color:var(--ink-soft);font-size:16px;max-width:680px;}
+
+/* ===== Hero ===== */
+.hero{padding:64px 0 40px;}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold-soft);color:#9A6E12;
+  font-size:13px;font-weight:500;padding:7px 15px;border-radius:100px;
+  margin-bottom:24px;
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);}
+.hero h1{font-size:46px;font-weight:900;letter-spacing:.01em;line-height:1.22;}
+.hero h1 .hl{color:var(--gold);}
+.hero-desc{margin-top:22px;font-size:17px;color:var(--ink-soft);line-height:1.85;}
+.hero-meta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+.hero-meta .m{
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:14px;padding:14px 18px;flex:1;min-width:120px;
+}
+.hero-meta .m .n{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--ink);}
+.hero-meta .m .l{font-size:12.5px;color:var(--ink-faint);margin-top:2px;}
+.hero-img{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);}
+.hero-img img{display:block;width:100%;height:auto;}
+
+/* ===== 理念 ===== */
+.principle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.p-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 26px;position:relative;overflow:hidden;
+}
+.p-card .p-num{
+  font-family:var(--serif);font-size:15px;font-weight:700;color:var(--gold);
+  margin-bottom:16px;letter-spacing:.1em;
+}
+.p-card h3{font-size:20px;margin-bottom:12px;}
+.p-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.8;}
+.p-card .p-ico{
+  width:46px;height:46px;border-radius:13px;background:var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+}
+.p-card .p-ico svg{width:24px;height:24px;}
+
+.dev-box{
+  margin-top:26px;background:linear-gradient(135deg,#3A3328,#4A4133);
+  border-radius:var(--radius);padding:34px 38px;color:#F4EEDF;
+  display:grid;grid-template-columns:1.3fr 1fr;gap:34px;align-items:center;
+}
+.dev-box h3{color:#fff;font-size:21px;margin-bottom:14px;}
+.dev-box p{font-size:14.5px;color:#D3CBB8;line-height:1.85;}
+.dev-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.dev-stat{background:rgba(255,255,255,.07);border-radius:13px;padding:16px 18px;}
+.dev-stat .n{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--gold);}
+.dev-stat .l{font-size:12.5px;color:#C3BAA5;margin-top:3px;line-height:1.5;}
+
+/* ===== 时间轴 ===== */
+.schedule-note{
+  background:var(--gold-soft);border-radius:12px;padding:14px 20px;
+  font-size:14px;color:#8A6514;margin-bottom:32px;display:flex;gap:10px;
+}
+.schedule-note svg{width:19px;height:19px;flex-shrink:0;margin-top:2px;}
+.timeline{position:relative;}
+.tl-row{
+  display:grid;grid-template-columns:118px 30px 1fr;
+  gap:18px;align-items:start;padding-bottom:8px;
+}
+.tl-time{
+  text-align:right;font-family:var(--serif);font-size:14.5px;font-weight:600;
+  color:var(--ink);padding-top:11px;
+}
+.tl-time span{display:block;font-family:var(--sans);font-size:12px;font-weight:400;color:var(--ink-faint);}
+.tl-axis{position:relative;display:flex;justify-content:center;height:100%;}
+.tl-axis::before{
+  content:"";position:absolute;top:0;bottom:-8px;left:50%;
+  width:2px;background:var(--line);transform:translateX(-50%);
+}
+.tl-row:last-child .tl-axis::before{display:none;}
+.tl-dot{
+  width:14px;height:14px;border-radius:50%;background:var(--paper);
+  border:3px solid var(--gold);margin-top:13px;position:relative;z-index:2;
+}
+.tl-dot.cat-yuwen{border-color:var(--yuwen);}
+.tl-dot.cat-shuxue{border-color:var(--shuxue);}
+.tl-dot.cat-yingyu{border-color:var(--yingyu);}
+.tl-dot.cat-gangqin{border-color:var(--gangqin);}
+.tl-dot.cat-rest{border-color:var(--ink-faint);}
+.tl-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:13px;
+  padding:13px 18px;margin-bottom:10px;
+}
+.tl-card h4{font-family:var(--sans);font-size:15.5px;font-weight:600;}
+.tl-card p{font-size:13.5px;color:var(--ink-soft);margin-top:2px;line-height:1.7;}
+.tl-tag{
+  display:inline-block;font-size:11.5px;font-weight:500;padding:2px 9px;
+  border-radius:100px;margin-left:9px;vertical-align:middle;
+}
+.tag-yuwen{background:var(--yuwen-soft);color:var(--yuwen);}
+.tag-shuxue{background:var(--shuxue-soft);color:var(--shuxue);}
+.tag-yingyu{background:var(--yingyu-soft);color:var(--yingyu);}
+.tag-gangqin{background:var(--gangqin-soft);color:var(--gangqin);}
+.tag-rest{background:#F0EDE6;color:var(--ink-soft);}
+
+/* ===== 图表 ===== */
+.chart-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 28px 22px;
+}
+.chart-card h3{font-size:19px;margin-bottom:4px;}
+.chart-card .chart-sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;}
+.chart{width:100%;height:340px;}
+.week-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;}
+.week-tip{
+  border-radius:var(--radius);padding:26px 28px;color:#fff;
+}
+.week-tip.tip-weekday{background:linear-gradient(135deg,#3E7CAE,#548FC0);}
+.week-tip.tip-weekend{background:linear-gradient(135deg,#DE6B5E,#E8847A);}
+.week-tip h4{font-family:var(--sans);font-size:16px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:9px;}
+.week-tip ul{list-style:none;}
+.week-tip li{font-size:13.5px;line-height:1.85;padding-left:18px;position:relative;opacity:.95;}
+.week-tip li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.7);}
+
+/* ===== 学科板块 ===== */
+.subject{
+  border-radius:24px;overflow:hidden;margin-bottom:40px;
+  border:1px solid var(--line);background:var(--paper);
+}
+.subject.yuwen{--c:var(--yuwen);--c-soft:var(--yuwen-soft);}
+.subject.shuxue{--c:var(--shuxue);--c-soft:var(--shuxue-soft);}
+.subject.yingyu{--c:var(--yingyu);--c-soft:var(--yingyu-soft);}
+.subject.gangqin{--c:var(--gangqin);--c-soft:var(--gangqin-soft);}
+.subj-head{
+  display:grid;grid-template-columns:170px 1fr;gap:28px;align-items:center;
+  padding:30px 34px;background:var(--c-soft);
+}
+.subj-head img{width:150px;height:150px;border-radius:18px;object-fit:cover;border:4px solid #fff;box-shadow:var(--shadow);}
+.subj-no{font-size:13px;font-weight:600;letter-spacing:.14em;color:var(--c);margin-bottom:7px;}
+.subj-head h3{font-size:27px;}
+.subj-head .subj-line{font-size:14.5px;color:var(--ink-soft);margin-top:8px;line-height:1.7;}
+.subj-goals{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.subj-goal{
+  background:#fff;border:1px solid var(--c);color:var(--c);
+  font-size:12.5px;font-weight:500;padding:4px 13px;border-radius:100px;
+}
+.subj-body{padding:30px 34px;}
+.subj-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.col-title{
+  display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;
+  font-family:var(--sans);margin-bottom:18px;padding-bottom:12px;
+  border-bottom:2px solid var(--c-soft);
+}
+.col-title .ct-ico{
+  width:30px;height:30px;border-radius:9px;background:var(--c-soft);
+  display:flex;align-items:center;justify-content:center;
+}
+.col-title .ct-ico svg{width:17px;height:17px;}
+.m-item{margin-bottom:18px;padding-left:2px;}
+.m-item h4{font-family:var(--sans);font-size:15px;font-weight:600;display:flex;align-items:center;gap:9px;}
+.m-item h4 .m-dot{width:7px;height:7px;border-radius:50%;background:var(--c);flex-shrink:0;}
+.m-item p{font-size:13.5px;color:var(--ink-soft);line-height:1.75;margin-top:4px;padding-left:16px;}
+.h-item{display:flex;gap:12px;margin-bottom:15px;align-items:flex-start;}
+.h-check{
+  width:21px;height:21px;border-radius:7px;border:2px solid var(--c);
+  flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;
+}
+.h-check svg{width:12px;height:12px;}
+.h-item h4{font-family:var(--sans);font-size:14.5px;font-weight:600;}
+.h-item p{font-size:13px;color:var(--ink-soft);line-height:1.7;margin-top:2px;}
+.subj-foot{
+  margin-top:26px;padding:20px 24px;border-radius:14px;
+  background:var(--c-soft);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;
+}
+.subj-foot .sf-ico{
+  width:42px;height:42px;border-radius:12px;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.subj-foot .sf-ico svg{width:22px;height:22px;}
+.subj-foot h4{font-family:var(--sans);font-size:14.5px;font-weight:600;color:var(--c);margin-bottom:4px;}
+.subj-foot p{font-size:13.5px;color:var(--ink-soft);line-height:1.75;}
+
+/* ===== 激励机制 ===== */
+.reward-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.reward-card{
+  border-radius:var(--radius);padding:28px 26px;color:#fff;position:relative;overflow:hidden;
+}
+.reward-card.r-day{background:linear-gradient(140deg,#E3A93E,#ECA94D);}
+.reward-card.r-week{background:linear-gradient(140deg,#5AA676,#6CB886);}
+.reward-card.r-month{background:linear-gradient(140deg,#8A68B0,#9C7FC0);}
+.reward-card .rc-step{font-size:13px;font-weight:600;letter-spacing:.12em;opacity:.85;margin-bottom:10px;}
+.reward-card h3{font-family:var(--sans);font-size:20px;color:#fff;margin-bottom:12px;}
+.reward-card ul{list-style:none;}
+.reward-card li{font-size:13.5px;line-height:1.8;padding-left:18px;position:relative;opacity:.96;}
+.reward-card li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.75);}
+.reward-note{
+  margin-top:24px;background:var(--paper);border:1px dashed var(--gold);
+  border-radius:14px;padding:18px 24px;font-size:14px;color:var(--ink-soft);
+  display:flex;gap:12px;align-items:center;
+}
+.reward-note svg{width:22px;height:22px;flex-shrink:0;}
+
+/* ===== 打卡表 ===== */
+.checkin-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px 30px;
+}
+.checkin-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:22px;}
+.checkin-top h3{font-size:21px;}
+.checkin-top .ci-week{font-size:13.5px;color:var(--ink-faint);margin-top:3px;}
+.progress-wrap{display:flex;align-items:center;gap:14px;min-width:240px;}
+.progress-bar{flex:1;height:10px;background:#F0EDE6;border-radius:100px;overflow:hidden;}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#E3A93E,#ECA94D);border-radius:100px;transition:width .4s;}
+.progress-text{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--gold);white-space:nowrap;}
+.checkin-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+.checkin-table th,.checkin-table td{text-align:center;}
+.checkin-table th{
+  font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink-faint);
+  padding:8px 4px;
+}
+.checkin-table td.habit-name{
+  text-align:left;font-size:13.5px;font-weight:500;color:var(--ink);
+  padding:8px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.checkin-cell{
+  width:100%;aspect-ratio:1.4;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;border-radius:10px;transition:all .15s;
+}
+.checkin-cell:hover{background:var(--gold-soft);}
+.checkin-cell .star{width:20px;height:20px;color:#D9D2C4;transition:all .15s;}
+.checkin-cell.done{background:var(--gold-soft);}
+.checkin-cell.done .star{color:var(--gold);}
+.checkin-actions{margin-top:18px;display:flex;gap:12px;justify-content:flex-end;}
+.btn{
+  font-family:var(--sans);font-size:13.5px;font-weight:500;
+  border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+  padding:8px 18px;border-radius:10px;cursor:pointer;transition:all .15s;
+}
+.btn:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ===== 评估 ===== */
+.eval-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.eval-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px 28px;
+}
+.eval-card h3{font-size:19px;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eval-card h3 .e-ico{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;}
+.eval-list{list-style:none;}
+.eval-list li{font-size:14px;padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start;line-height:1.7;}
+.eval-list li:last-child{border-bottom:none;}
+.eval-list li .mk{flex-shrink:0;width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.eval-card.good h3 .e-ico{background:var(--yingyu-soft);}
+.eval-card.good .mk{background:var(--yingyu-soft);}
+.eval-card.calm h3 .e-ico{background:var(--gold-soft);}
+.eval-card.calm .mk{background:var(--gold-soft);}
+.eval-list li .mk svg{width:12px;height:12px;}
+
+/* ===== 避坑 ===== */
+.pitfall-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.pit-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:22px 24px;
+  display:grid;grid-template-columns:auto 1fr;gap:16px;
+}
+.pit-card .pit-ico{
+  width:40px;height:40px;border-radius:11px;background:#F6E2DF;
+  display:flex;align-items:center;justify-content:center;
+}
+.pit-card .pit-ico svg{width:20px;height:20px;}
+.pit-card h4{font-family:var(--sans);font-size:15px;font-weight:600;margin-bottom:5px;}
+.pit-card .wrong{font-size:13px;color:#C0695C;line-height:1.7;}
+.pit-card .right{font-size:13px;color:var(--ink-soft);line-height:1.7;margin-top:5px;padding-left:14px;border-left:2px solid var(--yingyu);}
+.shout-box{
+  margin-top:24px;background:linear-gradient(135deg,#FBE7E4,#FDF1EE);
+  border:1px solid #F0CCC6;border-radius:var(--radius);padding:28px 32px;
+}
+.shout-box h3{font-size:19px;color:#B85548;margin-bottom:12px;}
+.shout-box p{font-size:14px;color:#7A554F;line-height:1.85;}
+.shout-box .alt{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.shout-box .alt div{background:#fff;border-radius:12px;padding:14px 16px;font-size:13px;color:var(--ink-soft);line-height:1.7;}
+.shout-box .alt div b{display:block;color:var(--ink);font-family:var(--sans);margin-bottom:3px;font-size:13.5px;}
+
+/* ===== Footer ===== */
+footer{
+  background:#332E25;color:#C9C0AE;padding:50px 0 40px;margin-top:20px;
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;}
+footer h4{font-family:var(--serif);font-size:20px;color:#fff;margin-bottom:12px;}
+footer p{font-size:13.5px;line-height:1.85;}
+.foot-quote{
+  border-left:3px solid var(--gold);padding-left:20px;font-size:15px;color:#E4DCC9;font-style:italic;line-height:1.9;
+}
+
+/* placeholder */
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge"><span class="dot"></span>小学二年级 · 8岁成长关键期</span>
+        <h1>让学习像呼吸一样<span class="hl">自然</span></h1>
+        <p class="hero-desc">
+          这是一份围绕语文、数学、英语与钢琴的兴趣与习惯培养方案。
+          我们不追求一时的分数，而是帮孩子把"好奇、专注、坚持"内化为日常，
+          让她在被看见、被鼓励的节奏里，慢慢长出受益一生的学习力。
+        </p>
+        <div class="hero-meta">
+          <div class="m"><div class="n">20分钟</div><div class="l">单次专注合理时长</div></div>
+          <div class="m"><div class="n">4大领域</div><div class="l">语 · 数 · 英 · 钢琴</div></div>
+          <div class="m"><div class="n">6天/周</div><div class="l">节奏化练习与留白</div></div>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/BDacb2PdtoRst9xDgx4cLN7JnIb" alt="女孩在温馨书桌前学习">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 核心理念 ===== -->
+<section id="principle">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">核心理念</span>
+      <h2 class="sec-title">先养兴趣，再立习惯，后谈成绩</h2>
+      <p class="sec-sub">二年级孩子的前额叶尚未发育成熟，自控力来自"他律"的慢慢内化。家长要做的不是监工，而是搭好一个温柔而稳定的脚手架。</p>
+    </div>
+
+    <div class="principle-grid">
+      <div class="p-card">
+        <div class="p-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E3A93E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+        </div>
+        <div class="p-num">原则 01</div>
+        <h3>兴趣是真正的发动机</h3>
+        <p>被强迫的学习会在孩子大脑里和"痛苦"建立连接。用游戏、故事、生活场景和选择权，让孩子觉得"这是我想做的事"，内驱力才会启动。</p>
+      </div>
+      <div class="p-card">
+        <div class="p-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E3A93E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <div class="p-num">原则 02</div>
+        <h3>习惯靠重复的日常塑造</h3>
+        <p>同一时间、同一地点、同一动作，连续重复约21–66天形成稳定回路。把"每天一小步"固定下来，比偶尔的发奋有效十倍。</p>
+      </div>
+      <div class="p-card">
+        <div class="p-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E3A93E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg>
+        </div>
+        <div class="p-num">原则 03</div>
+        <h3>正向反馈让进步可见</h3>
+        <p>鼓励要具体到行为（"你今天自己读了20分钟"），用打卡、积分、仪式感把点滴进步可视化。被看见的努力，才会被重复。</p>
+      </div>
+    </div>
+
+    <div class="dev-box">
+      <div>
+        <h3>读懂 8 岁：她不是"不专心"，只是大脑还在长大</h3>
+        <p>
+          8 岁孩子的有意注意时长约为 16–40 分钟，遇到枯燥或过难的任务会降到 5–10 分钟。
+          因此所有学习都应"短时多次、动静交替"——两个 15 分钟中间安排走动休息，
+          远胜过一次硬坐 40 分钟。理解这一点，焦虑会少很多。
+        </p>
+      </div>
+      <div class="dev-stats">
+        <div class="dev-stat"><div class="n">15–20分</div><div class="l">单个学习块建议时长</div></div>
+        <div class="dev-stat"><div class="n">5分钟</div><div class="l">块间休息、起身活动</div></div>
+        <div class="dev-stat"><div class="n">10小时</div><div class="l">每日充足睡眠（建议21:00前睡）</div></div>
+        <div class="dev-stat"><div class="n">60分钟</div><div class="l">每日户外活动与运动</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 每日作息 ===== -->
+<section id="schedule" style="background:#F3EEE5;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">每日节奏</span>
+      <h2 class="sec-title">放学后的一张"弹性时间表"</h2>
+      <p class="sec-sub">固定的顺序比精确的钟点更重要。以下时间可按放学时间整体平移，关键是让孩子形成"先做什么、再做什么"的稳定预期。</p>
+    </div>
+
+    <div class="schedule-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#8A6514" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+      <span>遵循"学习 15–25 分钟 → 休息 5 分钟"的节律；最难的任务放在孩子精力最好的时段，每完成一项就划掉，给足"完成感"。</span>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-time">16:30<span>约40分钟</span></div>
+        <div class="tl-axis"><div class="tl-dot cat-rest"></div></div>
+        <div class="tl-card"><h4>回家放松 · 点心与户外<span class="tl-tag tag-rest">先充电</span></h4><p>不急于写作业。吃点东西、跑跑跳跳、和家人聊聊学校的事，让大脑从课堂切换过来。</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">17:10<span>25分钟</span></div>
+        <div class="tl-axis"><div class="tl-dot"></div></div>
+        <div class="tl-card"><h4>学校作业 · 第一块<span class="tl-tag tag-rest">专注</span></h4><p>用沙漏/可视化计时器，先做较难的一科。家长"在场而不盯着"，有问题集中在休息时问。</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">17:40<span>20分钟</span></div>
+        <div class="tl-axis"><div class="tl-dot cat-yuwen"></div></div>
+        <div class="tl-card"><h4>语文时光<span class="tl-tag tag-yuwen">语文</span></h4><p>课外阅读或朗读为主，配合当天的看图写话/识字；以"读得开心"为第一目标。</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">18:00<span>60分钟</span></div>
+        <div class="tl-axis"><div class="tl-dot cat-rest"></div></div>
+        <div class="tl-card"><h4>晚餐 · 家庭时光<span class="tl-tag tag-rest">放松</span></h4><p>餐桌上不批评、不谈成绩，玩"今天最开心/最糗的一件事"，保护表达欲。</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">19:00<span>15分钟</span></div>
+        <div class="tl-axis"><div class="tl-dot cat-shuxue"></div></div>
+        <div class="tl-card"><h4>数学思维<span class="tl-tag tag-shuxue">数学</span></h4><p>5分钟口算天天练，每周2–3次加一个思维小游戏/桌游（数独、七巧板、24点）。</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">19:18<span>18分钟</span></div>
+        <div class="tl-axis"><div class="tl-dot cat-yingyu"></div></div>
+        <div class="tl-card"><h4>英语磨耳朵<span class="tl-tag tag-yingyu">英语</span></h4><p>先听后读：英文儿歌/动画音频泛听，再跟读1–2本分级读物，选美音资源，不纠音、不考试。</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">19:40<span>20分钟</span></div>
+        <div class="tl-axis"><div class="tl-dot cat-gangqin"></div></div>
+        <div class="tl-card"><h4>钢琴练习<span class="tl-tag tag-gangqin">钢琴</span></h4><p>固定流程：手指热身 → 基本功 → 回课作业（分手慢练）→ 自由弹一首喜欢的曲子。</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">20:05<span>40分钟</span></div>
+        <div class="tl-axis"><div class="tl-dot cat-rest"></div></div>
+        <div class="tl-card"><h4>洗漱 · 亲子共读 · 聊天<span class="tl-tag tag-rest">收尾</span></h4><p>把当天的星星贴纸贴上打卡表，讲一个睡前故事或共读几页，带着"今天很棒"的感觉入睡。</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">21:00<span>——</span></div>
+        <div class="tl-axis"><div class="tl-dot cat-rest"></div></div>
+        <div class="tl-card"><h4>上床睡觉<span class="tl-tag tag-rest">睡眠</span></h4><p>保证约10小时睡眠，大脑在睡眠中巩固当天的记忆与技能，比多刷题更重要。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 每周节奏 ===== -->
+<section id="week">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">每周节奏</span>
+      <h2 class="sec-title">天天有接触，周周有留白</h2>
+      <p class="sec-sub">语文、英语、钢琴重在"每天一点点"的连续感；数学思维隔天一次即可；周末留出大块时间给运动、玩伴和发呆。</p>
+    </div>
+
+    <div class="chart-card">
+      <h3>周一到周日 · 课外学习时间分配</h3>
+      <div class="chart-sub">单位：分钟 / 天。课外学习总量控制在每天 60–90 分钟，单科不疲劳作战。</div>
+      <div id="weekChart" class="chart"></div>
+    </div>
+
+    <div class="week-grid">
+      <div class="week-tip tip-weekday">
+        <h4>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          工作日：守节奏
+        </h4>
+        <ul>
+          <li>语文阅读、英语磨耳朵、钢琴：每天固定时间，不轻易跳过</li>
+          <li>数学思维安排在周二、周四，避免每天都"加餐"</li>
+          <li>状态差时可减量但不取消，保住"连续性"这条线</li>
+          <li>作业优先，兴趣拓展以不挤占睡眠为前提</li>
+        </ul>
+      </div>
+      <div class="week-tip tip-weekend">
+        <h4>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+          周末：留白与充电
+        </h4>
+        <ul>
+          <li>安排一次家庭"演奏会"或读书会，把成果展示给家人</li>
+          <li>大块时间用于户外运动、自然、博物馆和小伙伴</li>
+          <li>周日做一次10分钟轻复盘，一起规划下周</li>
+          <li>钢琴可"自由弹"，读想读的闲书，允许无聊和发呆</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 四大板块 ===== -->
+<section id="subjects">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">分科方案</span>
+      <h2 class="sec-title">语文 · 数学 · 英语 · 钢琴</h2>
+      <p class="sec-sub">每科都包含"兴趣怎么养、习惯怎么立、家长怎么配合"三件事。方法不求多，挑两三条坚持做，比全部铺开更有效。</p>
+    </div>
+
+    <!-- 语文 -->
+    <div class="subject yuwen">
+      <div class="subj-head">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GfCpbyYe5ogschx1dfOcY1ZZnge" alt="语文阅读">
+        <div>
+          <div class="subj-no">SUBJECT · 01</div>
+          <h3>语文：让阅读成为一辈子的朋友</h3>
+          <p class="subj-line">二年级是从"亲子共读"走向"自主阅读"的关键期。语文的根在大量、自由、快乐的阅读，不在提前做卷子。</p>
+          <div class="subj-goals">
+            <span class="subj-goal">识字累计约1600字</span>
+            <span class="subj-goal">流利朗读</span>
+            <span class="subj-goal">看图写话</span>
+            <span class="subj-goal">每日阅读</span>
+          </div>
+        </div>
+      </div>
+      <div class="subj-body">
+        <div class="subj-cols">
+          <div>
+            <div class="col-title"><span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span>兴趣怎么养</div>
+            <div class="m-item"><h4><span class="m-dot"></span>用"桥梁书"过渡到自主阅读</h4><p>选图多字少、情节有趣的桥梁书和系列故事（如《神奇校车》《青蛙和蟾蜍》），让孩子尝到"我能自己读完一本书"的成就感。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>办家庭"故事会"</h4><p>每周固定一晚，孩子当小老师给全家讲故事、复述绘本；可以用手偶、小道具，家长当最捧场的观众。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>汉字寻宝游戏</h4><p>走在街上认招牌、看包装找认识的字、给家里物品贴名称标签；在生活里识字，比抄写字头有趣得多。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>古诗文唱起来</h4><p>把古诗编成好听的童谣或跟着音频吟唱，配合画面和小动画，让孩子先爱上韵律和意境，再谈背诵。</p></div>
+          </div>
+          <div>
+            <div class="col-title"><span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>习惯怎么立</div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>固定阅读时间</h4><p>每天睡前或放学后20–30分钟，同一时间、同一角落，雷打不动，形成"到点就读书"的生物钟。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>大声朗读10分钟</h4><p>每天朗读一小段，要求读准字音、不加字漏字；这是语感、专注力和表达的共同基础。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>正确的书写姿势</h4><p>写字时"一尺一拳一寸"，握笔坐姿从一开始就规范，每天少量写、写端正，胜过潦草写一大篇。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>爱惜书、读完归位</h4><p>爱护书页、不乱涂乱画（可圈画自己的书），读完放回固定的小书架，让"找书"变得轻松。</p></div></div>
+          </div>
+        </div>
+        <div class="subj-foot">
+          <div class="sf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+          <div>
+            <h4>家长这样配合</h4>
+            <p>少做"读完要提问、要总结"的考试式共读，多聊"我最喜欢这段…你呢？"；把书放在家里随处可见的地方，家长自己先拿起书；孩子写话时不纠结字数和错别字，先夸"你写了一个好故事"，再慢慢规范。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数学 -->
+    <div class="subject shuxue">
+      <div class="subj-head">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/FSzabZim3opvpOxRSLSc3T8mn5b" alt="数学思维">
+        <div>
+          <div class="subj-no">SUBJECT · 02</div>
+          <h3>数学：在生活和游戏里长出思维</h3>
+          <p class="subj-line">二年级要练计算，更要保护"我会想办法"的自信。数学不是刷出来的，是用出来、玩出来、讲出来的。</p>
+          <div class="subj-goals">
+            <span class="subj-goal">100以内加减熟练</span>
+            <span class="subj-goal">乘法口诀</span>
+            <span class="subj-goal">应用题理解</span>
+            <span class="subj-goal">数感与逻辑</span>
+          </div>
+        </div>
+      </div>
+      <div class="subj-body">
+        <div class="subj-cols">
+          <div>
+            <div class="col-title"><span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>兴趣怎么养</div>
+            <div class="m-item"><h4><span class="m-dot"></span>生活就是数学课堂</h4><p>购物时找零、分水果时平均分、看时钟、认门牌号、记家庭开支……让孩子在真实问题里感受"数学有用"。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>桌游里的思维训练</h4><p>数独入门、七巧板、火柴棒、24点、扑克牌比大小/凑十，每周2–3次，全家一起玩，比做题更练逻辑。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>动手搭一搭、量一量</h4><p>积木和磁力片拼搭、用尺子量家具、烘焙时称重和用量杯，在动手操作中建立空间感和数量感。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>数学绘本和故事</h4><p>读《数学帮帮忙》《好玩的数学》等绘本，把概念藏进故事里，让孩子先觉得数学亲切，再去攻克它。</p></div>
+          </div>
+          <div>
+            <div class="col-title"><span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>习惯怎么立</div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>口算5分钟天天练</h4><p>少量高频、口头为主，追求又对又熟练；把口诀、加减做成日常碎片（上学路上、等餐时），不搞疲劳战。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>审题先圈画</h4><p>应用题读两遍，圈出数字和关键词、判断"求什么"，必要时画一画图，从源头减少"粗心看错"。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>建一本错题本</h4><p>家长帮忙记录典型错题，过几天重做一次，弄懂为什么错；重点是理解，不是把错题抄得好看。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>先独立思考再求助</h4><p>卡住时约定"先自己想3分钟、可以画图"，再开口问；家长不直接给答案，用提问引导她自己走通。</p></div></div>
+          </div>
+        </div>
+        <div class="subj-foot">
+          <div class="sf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <div>
+            <h4>家长这样配合</h4>
+            <p>多问"你是怎么想的？还有别的办法吗？"，鼓励孩子把思路讲出来；算错了不批评、不代算，把错误当学习的好机会；不盲目追求刷题量和提前学，把一个概念真正理解透，比做一百道题更重要。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 英语 -->
+    <div class="subject yingyu">
+      <div class="subj-head">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/RcHobJzbBoO41Dx18ukc9sb4n7g" alt="英语启蒙">
+        <div>
+          <div class="subj-no">SUBJECT · 03</div>
+          <h3>英语：先听够、再开口，像母语一样习得</h3>
+          <p class="subj-line">二年级的英语应以"可理解的大量输入"为主：听儿歌、看动画、读分级，让孩子在情境中自然吸收，而不是背单词、抠语法。</p>
+          <div class="subj-goals">
+            <span class="subj-goal">每日听力输入</span>
+            <span class="subj-goal">自然拼读</span>
+            <span class="subj-goal">分级阅读起步</span>
+            <span class="subj-goal">敢开口</span>
+          </div>
+        </div>
+      </div>
+      <div class="subj-body">
+        <div class="subj-cols">
+          <div>
+            <div class="col-title"><span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span>兴趣怎么养</div>
+            <div class="m-item"><h4><span class="m-dot"></span>儿歌和动画当背景音</h4><p>选节奏明快的美音儿歌（如 Super Simple Songs）和喜欢的动画，玩耍、吃饭时泛听，让孩子在韵律里熟悉语音。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>给动画片段配音</h4><p>用配音类小应用，扮演动画里的角色跟读台词；有画面、有角色、有表演，孩子往往乐在其中、不知不觉开口。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>TPR全身动作游戏</h4><p>"Touch your nose / Jump / Turn around"边说边做动作，还可以玩单词寻宝、单词保龄球，让身体参与记忆。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>分级读物 + 英文绘本</h4><p>用分级读物做"骨架"、有趣的绘本做"血肉"，大量泛读；同一本书反复读，孩子会自然建立音和形的对应。</p></div>
+          </div>
+          <div>
+            <div class="col-title"><span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>习惯怎么立</div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>每天磨耳朵15–20分钟</h4><p>固定时间听儿歌、动画音频或绘本音频，贵在天天接触；"听够量"是开口和阅读的前提。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>跟读1–2本分级</h4><p>每天读一、两本小书，先听音频、再跟读、最后自己读，不求多，重点是"我能读英文书"的成就感。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>循序渐进学拼读</h4><p>结合读物逐步认识字母发音和简单拼读规律，不孤立背规则、不强迫抄写，在阅读中慢慢"拼"出来。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>敢开口、不怕错</h4><p>鼓励用学过的句子表达日常，哪怕只是单词和短句；把"说错"当成正常的一步，越说越敢说。</p></div></div>
+          </div>
+        </div>
+        <div class="subj-foot">
+          <div class="sf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/></svg></div>
+          <div>
+            <h4>家长这样配合</h4>
+            <p>统一选用美式发音资源，避免美音英音混用；不随时打断纠音、不搞"指着单词考中文"、不要求逐字翻译，保护兴趣；家长可以和孩子一起学、当她的语伴，常用简单的美音指令和表扬，让英语自然融入生活。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 钢琴 -->
+    <div class="subject gangqin">
+      <div class="subj-head">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/FiMmbIpEeoQiajx1oSGcrwz3nCg" alt="钢琴练习">
+        <div>
+          <div class="subj-no">SUBJECT · 04</div>
+          <h3>钢琴：让坚持有温度，让音乐回到快乐</h3>
+          <p class="subj-line">钢琴是四门里最考验"坚持"的。二年级的关键不是进度多快，而是让"每天摸一摸琴"成为像刷牙一样自然的事，并始终保留对音乐的喜爱。</p>
+          <div class="subj-goals">
+            <span class="subj-goal">每日练琴习惯</span>
+            <span class="subj-goal">基本功扎实</span>
+            <span class="subj-goal">音乐审美</span>
+            <span class="subj-goal">享受演奏</span>
+          </div>
+        </div>
+      </div>
+      <div class="subj-body">
+        <div class="subj-cols">
+          <div>
+            <div class="col-title"><span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>兴趣怎么养</div>
+            <div class="m-item"><h4><span class="m-dot"></span>保留一首"我最喜欢的曲子"</h4><p>每次练琴最后留3–5分钟自由弹一首她喜欢、有成就感的曲子，哪怕很简单；让练琴以"快乐"收尾。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>多听、多看、多感受</h4><p>平时在家放好听的钢琴曲、一起看演奏视频，有条件听一场儿童音乐会，让孩子先爱上音乐，再谈技术。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>办家庭小演奏会</h4><p>每月或节日里，让孩子正式为家人/朋友演奏一次，布置小舞台、报幕、鼓掌，让她体验"被欣赏"的高光。</p></div>
+            <div class="m-item"><h4><span class="m-dot"></span>玩一点即兴和创编</h4><p>鼓励用几个音"作曲"、给熟悉的儿歌配简单伴奏，把琴当成玩具探索；创造力会反过来滋养兴趣。</p></div>
+          </div>
+          <div>
+            <div class="col-title"><span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>习惯怎么立</div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>固定时间练琴</h4><p>每天饭后或某一固定时间练20分钟左右、每周6天，到点就坐下来；用"5分钟保底"规则，状态再差也不断线。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>固定的练琴流程</h4><p>手指热身（哈农/音阶）→ 基本功 → 回课作业 → 自由弹；流程清晰，孩子知道"每一步在做什么"。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>分手慢练、攻难点</h4><p>新曲子先单手、慢速度、一小节一小节练；把总出错的两三小节单独挑出来反复练，比从头弹到尾高效。</p></div></div>
+            <div class="h-item"><span class="h-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><h4>听老师的话、认真回课</h4><p>上课时记下老师的要求（家长协助），练琴时对照执行；每周一次的课，是进度和方法的把关。</p></div></div>
+          </div>
+        </div>
+        <div class="subj-foot">
+          <div class="sf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+          <div>
+            <h4>家长这样配合</h4>
+            <p>专业的纠错交给老师，家长主要负责"陪伴、提醒、鼓励"，不坐在旁边随时挑错、不把练琴变成拉锯战；用录音或录像记录每个月的弹奏，让孩子亲耳听到自己的进步；不以考级和进度为唯一目标、不与别人攀比，营造一个家里常有音乐的环境，孩子才会走得远。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 激励机制 ===== -->
+<section id="reward" style="background:#F3EEE5;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">正向激励</span>
+      <h2 class="sec-title">星星攒起来，努力被看见</h2>
+      <p class="sec-sub">和孩子一起约定一套"看得见、够得着"的奖励机制。奖励以陪伴和体验为主，让孩子为"我做到了"而骄傲，而不是只为东西而学。</p>
+    </div>
+
+    <div class="reward-grid">
+      <div class="reward-card r-day">
+        <div class="rc-step">每日 · 即时反馈</div>
+        <h3>贴一颗星星</h3>
+        <ul>
+          <li>每完成一项当日习惯，就在打卡表上点亮星星</li>
+          <li>当晚睡前一起数一数，给一句具体的表扬</li>
+          <li>让"完成"立刻得到回应，形成正向循环</li>
+        </ul>
+      </div>
+      <div class="reward-card r-week">
+        <div class="rc-step">每周 · 小目标</div>
+        <h3>小奖励</h3>
+        <ul>
+          <li>集满约定的星星数（如35颗），兑换一次小奖励</li>
+          <li>优先选：选周末活动、多讲一个故事、亲子游戏</li>
+          <li>每周日一起结算、规划下周，仪式感拉满</li>
+        </ul>
+      </div>
+      <div class="reward-card r-month">
+        <div class="rc-step">每月 · 成就感</div>
+        <h3>大奖励</h3>
+        <ul>
+          <li>连续坚持一个月，兑换一份"大奖励"</li>
+          <li>推荐：一次出行、心仪的书、一场音乐会/电影</li>
+          <li>办一场家庭演奏会，为坚持本身庆祝</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reward-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#E3A93E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span>三条底线：奖励标准要稳定，不随意加码或放水；不用学习/练琴当惩罚，也不用奖励去"买"分数；目标要让孩子踮踮脚就够得着，太难会直接放弃。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 打卡表 ===== -->
+<section id="checkin">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">习惯打卡</span>
+      <h2 class="sec-title">本周习惯打卡表</h2>
+      <p class="sec-sub">点击格子即可点亮星星，进度会自动保存在这台设备上。建议每晚睡前和孩子一起完成，把它当作一天温暖的收尾。</p>
+    </div>
+
+    <div class="checkin-card">
+      <div class="checkin-top">
+        <div>
+          <h3>我的一周</h3>
+          <div class="ci-week" id="weekLabel">坚持，是看得见的魔法</div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="progress-text" id="progressText">0 / 49</div>
+        </div>
+      </div>
+      <table class="checkin-table" id="checkinTable">
+        <colgroup>
+          <col style="width:22%">
+          <col style="width:11.1%"><col style="width:11.1%"><col style="width:11.1%">
+          <col style="width:11.1%"><col style="width:11.1%"><col style="width:11.1%"><col style="width:11.1%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>习惯</th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th><th>周日</th>
+          </tr>
+        </thead>
+        <tbody id="checkinBody"></tbody>
+      </table>
+      <div class="checkin-actions">
+        <button class="btn" id="resetBtn">清空本周</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 阶段评估 ===== -->
+<section id="eval" style="background:#F3EEE5;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">阶段评估</span>
+      <h2 class="sec-title">每月一次，看什么、不看什么</h2>
+      <p class="sec-sub">评价的尺子决定孩子的方向。多看"兴趣、专注、情绪"这些会生根的东西，看淡一时的名次和进度。</p>
+    </div>
+
+    <div class="eval-grid">
+      <div class="eval-card good">
+        <h3><span class="e-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#5AA676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>重点看这几件事</h3>
+        <ul class="eval-list">
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#5AA676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>是否愿意主动读书、主动开口、主动坐下来练琴</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#5AA676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>单次专注的时长有没有一点点变长</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#5AA676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>遇到难题，愿不愿意先自己想一想、试一试</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#5AA676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>有没有自己偏爱的书、曲子和游戏，眼睛里有没有光</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#5AA676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>吃得好、睡得香、情绪稳，愿意和家人分享</li>
+        </ul>
+      </div>
+      <div class="eval-card calm">
+        <h3><span class="e-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#E3A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></span>这几件事请看淡</h3>
+        <ul class="eval-list">
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#E3A93E" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></span>一次考试的分数起伏、班级名次的高低</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#E3A93E" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></span>钢琴和教材进度要不要和"别人家孩子"比</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#E3A93E" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></span>偶尔的粗心、反复、遗忘，这些都是正常的</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#E3A93E" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></span>某一天喊着"不想学、不想练"，先共情再调整</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#E3A93E" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></span>"不要输在起跑线"式的焦虑，学习是长跑</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 避坑指南 ===== -->
+<section id="pitfall">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">避坑指南</span>
+      <h2 class="sec-title">六个常见误区，绕开就是捷径</h2>
+      <p class="sec-sub">很多时候不是孩子不努力，而是方法用错了方向。看看这些坑，有则改之，无则加勉。</p>
+    </div>
+
+    <div class="pitfall-grid">
+      <div class="pit-card">
+        <div class="pit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C0695C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div>
+          <h4>把学习当惩罚</h4>
+          <div class="wrong">×"不听话就多写一张卷子、多练半小时琴"</div>
+          <div class="right">学习和练琴在孩子心里必须始终是美好的事，而不是用来吓唬的工具。</div>
+        </div>
+      </div>
+      <div class="pit-card">
+        <div class="pit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C0695C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div>
+          <h4>陪写变监工</h4>
+          <div class="wrong">×紧盯着每一笔，一错就指、一停就催</div>
+          <div class="right">家长"在场而不盯"，问题集中在休息时说，给孩子留出独立空间。</div>
+        </div>
+      </div>
+      <div class="pit-card">
+        <div class="pit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C0695C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M8 12h8M8 8h8M8 16h5"/></svg></div>
+        <div>
+          <h4>过早过量刷题</h4>
+          <div class="wrong">×买一堆练习册、提前学、把课余排满</div>
+          <div class="right">保护兴趣、睡眠和运动，把一个概念理解透，胜过囫囵做百题。</div>
+        </div>
+      </div>
+      <div class="pit-card">
+        <div class="pit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C0695C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/><path d="M12 18h.01"/></svg></div>
+        <div>
+          <h4>攀比与贴标签</h4>
+          <div class="wrong">×"你怎么这么不专心，看某某多好"</div>
+          <div class="right">只和"昨天的她"比，多用鼓励，标签会变成自我实现的预言。</div>
+        </div>
+      </div>
+      <div class="pit-card">
+        <div class="pit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C0695C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div>
+        <div>
+          <h4>只用金钱物质奖惩</h4>
+          <div class="wrong">×考高分就给钱，简单粗暴地"买"学习</div>
+          <div class="right">多用陪伴、体验和成就感，外在的物质奖励会削弱内在的兴趣。</div>
+        </div>
+      </div>
+      <div class="pit-card">
+        <div class="pit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C0695C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <div>
+          <h4>家长自己刷手机</h4>
+          <div class="wrong">×自己刷着手机，却要求孩子专心读书</div>
+          <div class="right">孩子模仿的是大人的行为。一起放下手机，让阅读和音乐成为家里的日常。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shout-box">
+      <h3>特别想说：忍不住想吼的时候</h3>
+      <p>
+        陪写作业时情绪上头、声音拔高，几乎是每个家长都经历过的时刻。但长期、高频的吼叫会让孩子长期处在紧张和恐惧中，
+        反而可能削弱她的安全感、专注力和记忆，也会一点点消耗最珍贵的亲子信任。
+        请放心，这不是孩子"不行"，更不是你"不够好"，我们只是需要给情绪换一个出口。
+      </p>
+      <div class="alt">
+        <div><b>先暂停、深呼吸</b>感到火往上冒时，先到另一个房间或喝口水，平静1分钟，再回来处理事情。</div>
+        <div><b>用"我"表达 + 给选择</b>"我有点着急了。你想先休息5分钟，还是现在一起把它做完？"</div>
+        <div><b>拆小任务、降难度</b>卡住往往是因为太难。把任务拆成一小步，用计时器，一次只做一件。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>写在最后</h4>
+        <p>最好的教育，是父母情绪稳定地陪伴，是孩子在"我可以"的体验里慢慢长大。
+        慢一点、稳一点、温柔一点，时间会给我们答案。</p>
+      </div>
+      <div class="foot-quote">
+        "教育不是灌满一桶水，而是点燃一把火。"<br>愿她眼里有光，心中有热爱。
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== ECharts 每周节奏 ===== */
+(function(){
+  var el = document.getElementById('weekChart');
+  if(!el || !window.echarts) return;
+  var chart = echarts.init(el);
+  var days = ['周一','周二','周三','周四','周五','周六','周日'];
+  var option = {
+    color:['#DE6B5E','#3E7CAE','#5AA676','#8A68B0'],
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
+      valueFormatter:function(v){return v + ' 分钟';}},
+    legend:{data:['语文','数学','英语','钢琴'],top:0,
+      textStyle:{fontFamily:'Noto Sans SC',fontSize:13,color:'#6E685F'},
+      itemWidth:13,itemHeight:13,itemGap:20},
+    grid:{left:8,right:14,bottom:0,top:42,containLabel:true},
+    xAxis:{type:'category',data:days,
+      axisTick:{show:false},
+      axisLine:{lineStyle:{color:'#EAE4D8'}},
+      axisLabel:{color:'#6E685F',fontSize:13,fontFamily:'Noto Sans SC'}},
+    yAxis:{type:'value',name:'分钟',nameTextStyle:{color:'#9B9488',fontSize:11,padding:[0,0,0,-20]},
+      splitLine:{lineStyle:{color:'#F0EDE6'}},
+      axisLabel:{color:'#9B9488',fontSize:11}},
+    series:[
+      {name:'语文',type:'bar',stack:'t',barWidth:'46%',
+        data:[25,25,25,25,25,30,20],
+        itemStyle:{borderRadius:[0,0,0,0]}},
+      {name:'数学',type:'bar',stack:'t',data:[15,25,15,25,10,25,0]},
+      {name:'英语',type:'bar',stack:'t',data:[18,18,18,18,18,20,20]},
+      {name:'钢琴',type:'bar',stack:'t',data:[22,22,22,22,22,25,0],
+        itemStyle:{borderRadius:[6,6,0,0]}}
+    ]
+  };
+  chart.setOption(option);
+  window.addEventListener('resize',function(){chart.resize();});
+})();
+
+/* ===== 打卡表 ===== */
+(function(){
+  var HABITS = ['语文阅读20分钟','大声朗读10分钟','口算5分钟','英语磨耳朵','钢琴练习','自己整理书包','21:00前睡觉'];
+  var DAYS = 7, TOTAL = HABITS.length * DAYS;
+  var starSVG = '<svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.4l1.1-6.5L2.6 9.3l6.5-.9z"/></svg>';
+
+  function mondayOf(d){
+    var x = new Date(d.getFullYear(),d.getMonth(),d.getDate());
+    var day = (x.getDay()+6)%7; // 周一=0
+    x.setDate(x.getDate()-day);
+    return x;
+  }
+  function fmt(d){return (d.getMonth()+1)+'月'+d.getDate()+'日';}
+  var monday = mondayOf(new Date());
+  var KEY = 'checkin-'+monday.getFullYear()+'-'+(monday.getMonth()+1)+'-'+monday.getDate();
+  var sunday = new Date(monday); sunday.setDate(monday.getDate()+6);
+  document.getElementById('weekLabel').textContent = fmt(monday)+' — '+fmt(sunday);
+
+  var state = {};
+  try{ state = JSON.parse(localStorage.getItem(KEY)||'{}') || {}; }catch(e){ state = {}; }
+
+  var body = document.getElementById('checkinBody');
+  function build(){
+    body.innerHTML = '';
+    HABITS.forEach(function(h,hi){
+      var tr = document.createElement('tr');
+      var td = document.createElement('td');
+      td.className = 'habit-name';
+      td.textContent = h;
+      tr.appendChild(td);
+      for(var di=0;di<DAYS;di++){
+        (function(hi,di){
+          var cell = document.createElement('td');
+          cell.style.padding = '4px';
+          var inner = document.createElement('div');
+          inner.className = 'checkin-cell';
+          inner.innerHTML = starSVG;
+          var id = hi+'_'+di;
+          if(state[id]) inner.classList.add('done');
+          inner.addEventListener('click',function(){
+            if(state[id]){delete state[id];inner.classList.remove('done');}
+            else{state[id]=true;inner.classList.add('done');}
+            save();update();
+          });
+          cell.appendChild(inner);
+          tr.appendChild(cell);
+        })(hi,di);
+      }
+      body.appendChild(tr);
+    });
+  }
+  function count(){return Object.keys(state).length;}
+  function update(){
+    var c = count();
+    var pct = Math.round(c/TOTAL*100);
+    document.getElementById('progressFill').style.width = pct+'%';
+    document.getElementById('progressText').textContent = c+' / '+TOTAL;
+  }
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+
+  document.getElementById('resetBtn').addEventListener('click',function(){
+    state = {}; save(); build(); update();
+  });
+
+  build(); update();
+})();
+</script>
+
+</body>
+</html>
+<!-- （注：内容由AI生成） -->

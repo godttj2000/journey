@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华数之星奥数竞赛 · 二年级考点与解题方法全解</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231E7A5B'/><text x='50' y='70' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>星</text></svg>">
+<style>
+:root{
+  --green:#1E7A5B; --green-d:#145C44; --green-l:#3BA47E; --green-bg:#EAF5EF;
+  --orange:#EE8445; --orange-d:#D96B2B; --orange-bg:#FDF0E6;
+  --blue:#4A7FB5; --blue-d:#35629A; --blue-bg:#EBF2F9;
+  --purple:#7A5BA0; --purple-bg:#F1ECF7;
+  --ink:#22302A; --ink-2:#4C5E55; --ink-3:#7A8A82;
+  --paper:#F6F9F5; --card:#FFFFFF; --line:#E2EAE4;
+  --yellow-bg:#FCF6E3; --red-bg:#FBECEA; --red:#C7544A;
+  --shadow:0 2px 10px rgba(26,70,53,.07); --shadow-h:0 8px 24px rgba(26,70,53,.13);
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans SC",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+::selection{background:var(--green-l);color:#fff}
+a{color:var(--green);text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{line-height:1.3;font-weight:700}
+
+/* 导航 */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1120px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:8px}
+.nav-logo{display:flex;align-items:center;gap:9px;font-weight:900;color:var(--green-d);font-size:17px;white-space:nowrap;margin-right:10px}
+.nav-logo .mk{width:32px;height:32px;background:var(--green);border-radius:9px;display:grid;place-items:center;color:#fff;font-size:16px}
+.nav-links{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:7px 11px;border-radius:8px;font-size:14px;color:var(--ink-2);white-space:nowrap;font-weight:500}
+.nav-links a:hover{background:var(--green-bg);color:var(--green-d)}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#145C44 0%,#1E7A5B 55%,#2E9474 100%);color:#fff;padding:64px 0 78px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 15%,rgba(255,255,255,.14) 0,transparent 42%),radial-gradient(circle at 8% 92%,rgba(255,255,255,.08) 0,transparent 40%)}
+.hero-in{position:relative;max-width:1120px;margin:0 auto;padding:0 24px}
+.hero .tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:6px 15px;border-radius:30px;font-size:13.5px;font-weight:500;margin-bottom:22px}
+.hero h1{font-size:clamp(28px,4.4vw,43px);font-weight:900;margin-bottom:15px}
+.hero h1 .hl{color:#FFD9A8}
+.hero p.sub{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.9);max-width:760px;font-weight:300}
+.hero-badges{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
+.hb{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:11px 17px;font-size:14px;font-weight:500}
+.hb b{font-size:16px}
+
+/* 区块 */
+section.block{padding-block:60px 8px}
+.sec-head{margin-bottom:30px;max-width:840px}
+.sec-kicker{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:10px}
+.sec-kicker::before{content:"";width:22px;height:3px;background:var(--green);border-radius:2px}
+.sec-head h2{font-size:clamp(23px,2.9vw,30px);color:var(--green-d);margin-bottom:9px}
+.sec-head p{color:var(--ink-2);font-size:15.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+/* 概况卡 */
+.role-card{padding:25px;position:relative;overflow:hidden}
+.role-card .rt{display:inline-flex;align-items:center;gap:8px;font-size:16.5px;font-weight:900;padding:6px 14px;border-radius:9px;margin-bottom:14px}
+.role-card .rt .ic{width:22px;height:22px}
+.role-card.c1 .rt{background:var(--blue-bg);color:var(--blue-d)}
+.role-card.c2 .rt{background:var(--green-bg);color:var(--green-d)}
+.role-card.c3 .rt{background:var(--orange-bg);color:var(--orange-d)}
+.role-card .desc{font-size:14px;color:var(--ink-2);margin-bottom:13px}
+.role-card .lbl{font-size:12.5px;font-weight:700;color:var(--ink-3);letter-spacing:1px;margin-bottom:6px}
+.role-card ul{list-style:none}
+.role-card ul li{position:relative;padding:5px 0 5px 20px;font-size:13.5px;color:var(--ink)}
+.role-card ul li::before{content:"";position:absolute;left:3px;top:13px;width:7px;height:7px;border-radius:50%}
+.role-card.c1 ul li::before{background:var(--blue)}
+.role-card.c2 ul li::before{background:var(--green-l)}
+.role-card.c3 ul li::before{background:var(--orange)}
+
+/* 表格 */
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{background:var(--green);color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:13px}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:nth-child(even) td{background:#F7FAF8}
+.tbl-wrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:14px}
+.tbl .c{text-align:center}
+
+/* 模块（unit） */
+.unit{margin-bottom:26px;scroll-margin-top:78px}
+.unit-head{display:flex;align-items:center;gap:15px;background:linear-gradient(120deg,var(--green-d),var(--green));color:#fff;border-radius:var(--r) var(--r) 0 0;padding:20px 26px}
+.unit-head .badge{flex-shrink:0;width:50px;height:50px;background:rgba(255,255,255,.16);border-radius:12px;display:grid;place-items:center;font-size:17px;font-weight:900}
+.unit-head h2{font-size:20px}
+.unit-head .pages{margin-left:auto;font-size:13px;background:rgba(255,255,255,.15);padding:5px 13px;border-radius:20px;white-space:nowrap}
+.unit-body{background:var(--card);border:1px solid var(--line);border-top:none;border-radius:0 0 var(--r) var(--r);padding:26px;box-shadow:var(--shadow)}
+
+/* 模块说明 */
+.goals{background:var(--green-bg);border:1px solid #C9E2D5;border-radius:11px;padding:13px 17px;margin-bottom:6px}
+.goals .gt{font-size:13px;font-weight:900;color:var(--green-d);margin-bottom:5px}
+.goals p{font-size:13.5px;color:#3C6B57}
+
+/* 方法步骤 */
+.method-box{background:var(--yellow-bg);border:1px solid #EEDFAE;border-radius:11px;padding:15px 18px;margin-top:12px}
+.method-box .mt{font-size:13.5px;font-weight:900;color:#8A5A17;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.steps{list-style:none;counter-reset:st}
+.steps li{counter-increment:st;position:relative;padding:6px 0 6px 34px;font-size:13.5px;color:#5C4A24;border-bottom:1px dashed #E6D8AC;line-height:1.65}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(st);position:absolute;left:2px;top:7px;width:23px;height:23px;background:#D9A94E;color:#fff;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700}
+.steps li b{color:#8A5A17}
+
+/* 公式块 */
+.formula{background:var(--green-bg);border:1px solid #C9E2D5;border-radius:11px;padding:13px 17px;margin-top:12px}
+.formula .f{font-size:15px;font-weight:700;color:var(--green-d);text-align:center;letter-spacing:.5px}
+.formula .note{font-size:12.5px;color:#4C7A68;margin-top:5px;text-align:center}
+
+/* 例题 */
+.example{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin-top:12px}
+.example .exh{background:var(--blue-bg);color:var(--blue);font-size:13px;font-weight:700;padding:8px 15px;display:flex;align-items:center;gap:7px}
+.example .exb{padding:13px 16px;font-size:14px}
+.example .exb .q{color:var(--ink);margin-bottom:8px}
+.example .exb .a{color:var(--green-d);font-size:13.5px;background:var(--green-bg);border-radius:8px;padding:9px 12px}
+.example .exb .a b{color:var(--green)}
+
+.tip{background:var(--blue-bg);border:1px solid #C9DBEC;border-radius:11px;padding:13px 16px;margin-top:12px;font-size:13.5px;color:#375E86}
+.tip b{color:#2C5378}
+.warn{background:var(--red-bg);border:1px solid #EBC9C5;border-radius:11px;padding:13px 16px;margin-top:12px;font-size:13.5px;color:#94403A}
+.warn b{color:var(--red)}
+
+/* 图表 */
+.chart-box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:20px 22px;margin-top:14px}
+.chart-box .ct{font-size:14px;font-weight:900;color:var(--green-d);margin-bottom:2px}
+.chart-box .cn{font-size:12.5px;color:var(--ink-3);margin-bottom:8px}
+.chart{width:100%;height:380px}
+
+/* 备考时间线 */
+.timeline{position:relative;margin-top:16px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl-item{position:relative;padding:0 0 20px 6px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-33px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--green);border:3px solid var(--green-bg);box-shadow:0 0 0 2px var(--green)}
+.tl-item .tt{font-size:14px;font-weight:900;color:var(--green-d)}
+.tl-item .td{font-size:13.5px;color:var(--ink-2);margin-top:2px}
+
+@media (max-width:920px){
+  .grid-3{grid-template-columns:1fr 1fr}
+  .grid-2{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  section.block{padding-block:44px 6px}
+  .nav-in{padding:0 13px;height:54px}
+  .nav-logo{font-size:15px;margin-right:6px}
+  .nav-logo .mk{width:29px;height:29px;font-size:15px}
+  .nav-links a{padding:6px 10px;font-size:13.5px}
+  .hero{padding:46px 0 58px}
+  .grid-3,.grid-2{grid-template-columns:1fr;gap:16px}
+  .chart{height:440px}
+  .unit-head{flex-wrap:wrap;gap:11px;padding:17px 19px}
+  .unit-head .badge{width:44px;height:44px;font-size:15px}
+  .unit-head h2{font-size:17px;flex-basis:calc(100% - 60px)}
+  .unit-head .pages{margin-left:0;font-size:12.5px}
+  .unit-body{padding:19px 16px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-in">
+    <div class="nav-logo"><span class="mk">星</span>华数之星·二年级</div>
+    <div class="nav-links">
+      <a href="#overview">竞赛总览</a>
+      <a href="#m1">速算巧算</a>
+      <a href="#m2">找规律</a>
+      <a href="#m3">数图形</a>
+      <a href="#m4">间隔植树</a>
+      <a href="#m5">应用题</a>
+      <a href="#m6">枚举计数</a>
+      <a href="#m7">推理数字谜</a>
+      <a href="#m8">周期</a>
+      <a href="#methods">速查表</a>
+      <a href="#plan">备考</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <span class="tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+      面向南京 · 小学二年级（低年级组）
+    </span>
+    <h1>华数之星奥数竞赛<br><span class="hl">考点与解题方法全解</span></h1>
+    <p class="sub">"华数之星"由知名的"华罗庚金杯"少年数学活动发展而来，是面向中小学生的经典数学思维活动。本手册针对二年级（低年级组），把竞赛常考的八大模块逐一拆解，列出考点、方法和步骤，配上例题，帮孩子在思维启蒙阶段走稳每一步。</p>
+    <div class="hero-badges">
+      <span class="hb"><b>计算</b>　又快又准</span>
+      <span class="hb"><b>思维</b>　有序推理</span>
+      <span class="hb"><b>应用</b>　举一反三</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 竞赛总览 ===== -->
+<section class="block" id="overview">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">ABOUT THE CONTEST</span>
+      <h2>先了解：华数之星是什么、怎么考</h2>
+      <p>竞赛重在数学思维而不是超前学习，二年级以"想得到、算得对、理得清"为目标，题目灵活、贴近生活，强调有序思考和推理。</p>
+    </div>
+    <div class="grid-3">
+      <div class="card role-card c1">
+        <span class="rt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v4h1"/></svg>它是什么</span>
+        <div class="desc">华数之星青少年数学大会，源自"华罗庚金杯"少年数学邀请赛，是国内历史悠久、影响力大的数学思维活动之一，以数学家华罗庚命名。</div>
+        <div class="lbl">特点</div>
+        <ul>
+          <li>重思维、重方法、重推理</li>
+          <li>题目源于生活、灵活有趣</li>
+          <li>不超前、不偏怪，重在启发</li>
+          <li>低年级以兴趣和信心为先</li>
+        </ul>
+      </div>
+      <div class="card role-card c2">
+        <span class="rt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>怎么考</span>
+        <div class="desc">一般采用线下笔试，按年级分组，考试时间约 90 分钟。低年级以填空题、选择题为主，重点看思路和结果，不强求复杂书写。</div>
+        <div class="lbl">常见形式</div>
+        <ul>
+          <li>填空题：写出答案即可</li>
+          <li>选择题：四选一，可排除</li>
+          <li>按年级/学段分组评奖</li>
+          <li>分初赛、复评等环节</li>
+        </ul>
+      </div>
+      <div class="card role-card c3">
+        <span class="rt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 15l3 3-3 3"/></svg>考什么</span>
+        <div class="desc">题目可归为八大模块：计算、找规律、图形、间隔、应用题、枚举、推理、周期。各模块相互联系，核心是"有序"和"转化"。</div>
+        <div class="lbl">八大模块</div>
+        <ul>
+          <li>速算巧算、找规律</li>
+          <li>巧数图形、间隔植树</li>
+          <li>典型应用题、枚举计数</li>
+          <li>逻辑推理、周期问题</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <div class="ct">八大模块在低年级的重要程度（经验示意）</div>
+      <div class="cn">根据低年级竞赛常见情况整理，非官方比例，仅供安排复习优先级参考。</div>
+      <div class="chart" id="chartImportance"></div>
+    </div>
+  </div>
+</section>
+<!-- ===== 模块一 速算与巧算 ===== -->
+<section class="block wrap" id="m1">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M1</div>
+      <h2>速算与巧算</h2>
+      <span class="pages">计算 · 又快又准</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">这个模块考什么</div>
+        <p>不硬算、会巧算。核心思想是"<b>整比散好、小比大好、乘比加好</b>"：能凑整就凑整，能变乘就变乘，把复杂算式变成好算的整十、整百数。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:20%"><col style="width:47%"><col style="width:33%"></colgroup>
+          <thead><tr><th>考点</th><th>方法</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td><b>凑整法</b></td><td>先找能凑成整十、整百的数；可换位置、可拆一个数去凑。</td><td>24+44+56，先算 44+56=100。</td></tr>
+            <tr><td><b>拆项凑整</b></td><td>把一个数拆成两部分，让其中一部分和另一个数凑整。</td><td>96+15：把15拆成4+11，96+4=100，再 +11。</td></tr>
+            <tr><td><b>加补凑整</b></td><td>先补上一点凑成整十，最后再把多加的减去。</td><td>28+28+28：各加2凑30，最后减 6，得 84。</td></tr>
+            <tr><td><b>带符号搬家</b></td><td>只有加减时，数字要<b>带着前面的+或−</b>一起搬，好算的先算。</td><td>45−18+19 = 45+(19−18) = 46。</td></tr>
+            <tr><td><b>变加为乘</b></td><td>几个相同加数的和，用乘法更快。</td><td>6+6+6+6+6 = 6×5 = 30。</td></tr>
+            <tr><td><b>抵消法</b></td><td>相同的数一个加、一个减，连符号一起抵消。</td><td>92−30+7+30−7 = 92。</td></tr>
+            <tr><td><b>减法巧算</b></td><td>连续减几个数 = 减它们的和；去括号时括号前是减号，里面要变号。</td><td>87−15−4−1 = 87−(15+4+1) = 87−20。</td></tr>
+            <tr><td><b>基准数法</b></td><td>几个数都接近同一个整十数时，先按它算，再补差。</td><td>23+20+19+22+18+21，按20×6 再调差额。</td></tr>
+            <tr><td><b>等差数列求和</b></td><td>个数是奇数：和=中间数×个数；个数是偶数：和=(首+末)×个数÷2。</td><td>1+2+…+10 = (1+10)×5 = 55。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+          方法步骤：凑整巧算
+        </div>
+        <ul class="steps">
+          <li><b>观察</b>：找一找有没有相加能凑成整十、整百的数。</li>
+          <li><b>搬家或拆数</b>：需要换位就带符号搬家；需要凑整就把一个数拆开。</li>
+          <li><b>先算整</b>：优先算出整十、整百的部分。</li>
+          <li><b>补差</b>：多加的减去、少加的补回，得到结果。</li>
+        </ul>
+      </div>
+
+      <div class="formula">
+        <div class="f">奇数个：和 = 中间数 × 个数　｜　偶数个：和 = (首数 + 末数) × 个数 ÷ 2</div>
+        <div class="note">相邻两数差相等的一串数叫等差数列，如 5,6,7,8,9，和 = 7×5 = 35。</div>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 计算 23+20+19+22+18+21。　② 计算 5+6+7+8+9。</div>
+          <div class="a"><b>解：</b>① 各数都接近20，按20×6=120，再 +3+0−1+2−2+1 = 123。<br>② 共5个数、中间数是7，和 = 7×5 = 35。</div>
+        </div>
+      </div>
+
+      <div class="tip"><b>巧算口诀：</b>看到算式先观察，能凑整的凑成整；相同加数变成乘，带符号搬家更省心。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 模块二 找规律 ===== -->
+<section class="block wrap" id="m2">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M2</div>
+      <h2>找规律</h2>
+      <span class="pages">观察 · 发现变化</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">这个模块考什么</div>
+        <p>给出一列数或一组图，发现其中<b>重复或变化的规律</b>，再填出空缺。关键是看相邻数之间的"差、倍、和"，以及图形的数量、位置、方向、阴影。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:22%"><col style="width:44%"><col style="width:34%"></colgroup>
+          <thead><tr><th>类型</th><th>规律</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td><b>等差数列</b></td><td>每次加（或减）同一个数。</td><td>3,6,9,12,（15）…</td></tr>
+            <tr><td><b>倍乘数列</b></td><td>后一个数是前一个数的几倍。</td><td>2,4,8,16,（32）…</td></tr>
+            <tr><td><b>差递增</b></td><td>相邻两数的差依次变大。</td><td>1,2,4,7,11：差为 1,2,3,4。</td></tr>
+            <tr><td><b>平方数</b></td><td>1×1、2×2、3×3……</td><td>1,4,9,16,（25）,36。</td></tr>
+            <tr><td><b>斐波那契</b></td><td>从第三个数起，每个数等于前两个数之和。</td><td>1,1,2,3,5,8,（13）…</td></tr>
+            <tr><td><b>双重数列</b></td><td>隔一个数分成两列，分别找规律。</td><td>10,11,9,12,8,（13）,（7）。</td></tr>
+            <tr><td><b>周期数列</b></td><td>几个数为一组重复出现。</td><td>2,5,3,8,9,2,5,3,8,9…</td></tr>
+            <tr><td><b>图形规律</b></td><td>看数量、位置、方向（旋转）、阴影的变化。</td><td>图形依次旋转、增加一格。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+          方法步骤：找规律
+        </div>
+        <ul class="steps">
+          <li><b>算相邻差</b>：先看后一个数减前一个数，差是否相同或有规律。</li>
+          <li><b>看倍数</b>：差不规律时，看是否成倍变化。</li>
+          <li><b>看相邻和</b>：看一个数是否等于前两个数之和。</li>
+          <li><b>隔一个看</b>：以上都不成立时，分成奇位、偶位两列分别找；图形先找重复的一组。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 1,1,2,3,5,8,（ ）,（ ）。　② 10,11,9,12,8,（ ）,（ ）。</div>
+          <div class="a"><b>解：</b>① 每个数等于前两个数之和：5+8=13，8+13=21，填 13、21。<br>② 隔一个看：10,9,8,（7）；11,12,（13），填 13、7。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>只看前两个数就下结论。要至少验证 2～3 组，确认规律一致再填。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 模块三 巧数图形 ===== -->
+<section class="block wrap" id="m3">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M3</div>
+      <h2>巧数图形</h2>
+      <span class="pages">几何 · 分类计数</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">这个模块考什么</div>
+        <p>数出图形中线段、三角形、角、长方形或方块的个数。核心方法是<b>分类数</b>：按一个科学的标准分类，做到不重复、不遗漏。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:21%"><col style="width:45%"><col style="width:34%"></colgroup>
+          <thead><tr><th>考点</th><th>方法</th><th>结论 / 例子</th></tr></thead>
+          <tbody>
+            <tr><td><b>数线段</b></td><td>打枪法（按左端点有序数）或按"由几条小线段组成"分类。</td><td>直线上 n 个点：(n−1)+(n−2)+…+1。</td></tr>
+            <tr><td><b>数三角形</b></td><td>共用一个顶点时，三角形个数 = 底边上的线段数。</td><td>底边分4段：4+3+2+1=10 个。</td></tr>
+            <tr><td><b>数角</b></td><td>从一点引出 n 条射线，角数 = (n−1)+…+1。</td><td>6 条射线：5+4+3+2+1=15 个。</td></tr>
+            <tr><td><b>数长方形</b></td><td>按"由几个小方格组成"分类数；含指定标记的也按包含小块数。</td><td>由1块、2块、4块……分别数再相加。</td></tr>
+            <tr><td><b>数正方形</b></td><td>按边长分类：边长为1、为2、为3……分别数。</td><td>不能漏掉由4个、9个小格拼成的。</td></tr>
+            <tr><td><b>数方块</b></td><td>分层数（看得见的+被挡住的），注意上层下面必有支撑。</td><td>逐层相加，不漏掉看不见的。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          方法步骤：分类数图形
+        </div>
+        <ul class="steps">
+          <li><b>定标准</b>：按左端点 / 底边 / 小块个数 / 边长，选一个标准。</li>
+          <li><b>有序数</b>：一类一类地数，每类写清数量。</li>
+          <li><b>求和</b>：把各类数量相加。</li>
+          <li><b>检查</b>：换个标准再数一次，看总数是否一致，确保不重不漏。</li>
+        </ul>
+      </div>
+
+      <div class="formula">
+        <div class="f">一条直线上 n 个点：线段数 = (n−1) + (n−2) + … + 2 + 1</div>
+        <div class="note">4 个点 = 3+2+1 = 6 条；5 个点 = 4+3+2+1 = 10 条。</div>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 一条直线上有 5 个点，共有多少条线段？② 三角形底边被分成 3 段、共用一个顶点，共多少个三角形？</div>
+          <div class="a"><b>解：</b>① 4+3+2+1 = 10 条。<br>② 底边上的线段数 = 3+2+1 = 6 个三角形。</div>
+        </div>
+      </div>
+      <div class="tip"><b>关键：</b>分类方法可以不同，但所分的类型要包含所有情况、相互不重叠，这样才能不重复、不遗漏。</div>
+    </div>
+  </div>
+</section>
+<!-- ===== 模块四 间隔与植树 ===== -->
+<section class="block wrap" id="m4">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M4</div>
+      <h2>间隔与植树</h2>
+      <span class="pages">应用 · 点与段</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">这个模块考什么</div>
+        <p>研究"点"和"段"的关系，如锯木头、爬楼梯、敲钟、排队、植树。共同点是先弄清楚<b>"次数（点）"和"间隔（段）"谁多谁少</b>。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:20%"><col style="width:44%"><col style="width:36%"></colgroup>
+          <thead><tr><th>类型</th><th>关系</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td><b>锯木头</b></td><td>次数 = 段数 − 1；段数 = 次数 + 1。</td><td>锯成 3 段要 2 次。</td></tr>
+            <tr><td><b>爬楼梯</b></td><td>楼梯层数 = 楼数 − 1。</td><td>1 楼到 4 楼走 3 层。</td></tr>
+            <tr><td><b>敲钟</b></td><td>间隔数 = 次数 − 1。</td><td>敲 4 下有 3 个间隔。</td></tr>
+            <tr><td><b>排队</b></td><td>间隔数 = 人数 − 1。</td><td>9 人之间有 8 个间隔。</td></tr>
+            <tr><td><b>植树（两端栽）</b></td><td>棵数 = 段数 + 1。</td><td>100 米每 10 米栽一棵，栽 11 棵。</td></tr>
+            <tr><td><b>植树（两端不栽）</b></td><td>棵数 = 段数 − 1。</td><td>两栋楼之间种树时常用。</td></tr>
+            <tr><td><b>植树（一端栽 / 封闭）</b></td><td>棵数 = 段数。</td><td>圆形花坛、跑道一圈。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><circle cx="12" cy="5" r="2.4"/><circle cx="12" cy="12" r="2.4"/><circle cx="12" cy="19" r="2.4"/></svg>
+          方法步骤：解间隔问题
+        </div>
+        <ul class="steps">
+          <li><b>画一画</b>：用简单的点、线画出示意图。</li>
+          <li><b>分清点和段</b>：确定谁是"次数/棵数"，谁是"间隔数"。</li>
+          <li><b>定加减1</b>：两端都有就 +1，两端都无就 −1，封闭或一端就相等。</li>
+          <li><b>先求段数</b>：总长 ÷ 每段长 = 段数，再据方式求棵数。</li>
+        </ul>
+      </div>
+
+      <div class="formula">
+        <div class="f">两端栽：棵数 = 段数 + 1　｜　两端不栽：棵数 = 段数 − 1　｜　封闭：棵数 = 段数</div>
+        <div class="note">每段距离 × 段数 = 总距离。</div>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 时钟 4 点敲 4 下，用 12 秒敲完；6 点敲 6 下用几秒？② 一根木头锯成 4 段，每锯一次 2 分钟，共要几分钟？</div>
+          <div class="a"><b>解：</b>① 敲4下有3个间隔，每个间隔 12÷3=4 秒；敲6下有5个间隔，5×4=20 秒。<br>② 锯成4段要 3 次，3×2=6 分钟。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>把"楼数"当"楼梯层数"、把"敲的次数"当"间隔数"。记住实际走的、算时间的是<b>间隔</b>。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 模块五 典型应用题 ===== -->
+<section class="block wrap" id="m5">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M5</div>
+      <h2>典型应用题</h2>
+      <span class="pages">应用 · 移多补少 / 年龄 / 和差</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">这个模块考什么</div>
+        <p>用数量关系解决生活问题，二年级常见三类：<b>移多补少、年龄问题、和差问题</b>。方法是先读懂题意、画图或摆一摆，再列式。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:21%"><col style="width:45%"><col style="width:34%"></colgroup>
+          <thead><tr><th>考点</th><th>方法 / 数量关系</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td><b>移多补少</b></td><td>把多出的部分平均分成两份，只移动其中一份给少的。<b>移动量 = 数量差 ÷ 2；数量差 = 移动量 × 2</b>。</td><td>哥22张、弟14张，差8张，给4张就一样多。</td></tr>
+            <tr><td><b>年龄问题</b></td><td>两人的年龄差永远不变；每过一年，每人都各长 1 岁。</td><td>爸32岁、儿6岁，差26岁，一直不变。</td></tr>
+            <tr><td><b>和差问题</b></td><td>已知两数和与差：大数 =（和+差）÷2；小数 =（和−差）÷2。</td><td>两数和20、差4，大数12、小数8。</td></tr>
+            <tr><td><b>倍数问题</b></td><td>求几倍用乘法；求一份是多少用除法；借助线段图分析。</td><td>红球5个、蓝球是它的3倍，蓝球15个。</td></tr>
+            <tr><td><b>比多比少</b></td><td>求"多多少/少多少"用减法；求大数用加、求小数用减。</td><td>分清"比……多"还是"比……少"。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
+          方法步骤：解应用题
+        </div>
+        <ul class="steps">
+          <li><b>读题</b>：找已知条件和问题，圈出关键的数和词。</li>
+          <li><b>画图</b>：画线段图、摆一摆，把数量关系表示出来。</li>
+          <li><b>定关系</b>：判断是移多补少、年龄差、和差还是倍数。</li>
+          <li><b>列式并检查</b>：列式计算，把答案放回题意验证。</li>
+        </ul>
+      </div>
+
+      <div class="formula">
+        <div class="f">移多补少：移动量 = 差 ÷ 2　｜　和差：大数 =（和+差）÷2，小数 =（和−差）÷2</div>
+        <div class="note">年龄差永远不变；每过一年，每人都长 1 岁。</div>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 哥哥 22 张邮票、弟弟 14 张，哥哥给弟弟几张后两人一样多？② 爸爸 32 岁、儿子 6 岁，几年后两人年龄和是 50 岁？</div>
+          <div class="a"><b>解：</b>① 差 22−14=8 张，移动 8÷2=4 张。<br>② 现在年龄和 38 岁，差 50−38=12 岁；两人每年共长 2 岁，12÷2=6 年。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>移多补少不能把多的全给少的（那样又不相等）；只给"差的一半"。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 模块六 枚举与计数 ===== -->
+<section class="block wrap" id="m6">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M6</div>
+      <h2>枚举与计数</h2>
+      <span class="pages">组合 · 有序列举</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">这个模块考什么</div>
+        <p>当情况有多种时，按顺序把所有情况一一列举出来，再数个数。枚举法是二年级的难点，关键是<b>有序思考</b>，不重复、不遗漏。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:21%"><col style="width:45%"><col style="width:34%"></colgroup>
+          <thead><tr><th>考点</th><th>方法</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td><b>凑钱</b></td><td>按面值从大到小、数量从多到少，依次列举各种凑法。</td><td>用1角、5角硬币凑8角，列清每种方法。</td></tr>
+            <tr><td><b>整数拆分</b></td><td>规定个数时按从大到小拆；不规定个数时按加数个数从少到多；约定前面的数不小于后面的。</td><td>把6拆成3个数：4+1+1、3+2+1、2+2+2。</td></tr>
+            <tr><td><b>组数问题</b></td><td>按百位（或十位）数字从小到大逐一列举，注意0不能在首位。</td><td>用1、2、3能组成6个不同的三位数。</td></tr>
+            <tr><td><b>搭配排列</b></td><td>固定一个量，再依次搭配另一个量，最后求和。</td><td>2件上衣、3条裤子，共 2×3=6 种搭配。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          方法步骤：枚举法
+        </div>
+        <ul class="steps">
+          <li><b>定顺序</b>：确定按什么顺序列举（从大到小、从多到少）。</li>
+          <li><b>分类</b>：先分大类，再在每一类里一一列举。</li>
+          <li><b>逐一写</b>：把每种情况写全，不漏不重。</li>
+          <li><b>计数</b>：数出总数，并检查边界情况（如 0 不能在首位）。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 用 1、2、3 三个数字能组成多少个不同的三位数？② 2 件上衣、3 条裤子，一共有几种穿法？</div>
+          <div class="a"><b>解：</b>① 按百位有序列举：123、132、213、231、312、321，共 6 个。<br>② 固定上衣，每件配 3 条裤子，2×3=6 种。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>东写一个、西写一个，漏掉或重复。一定要固定一个顺序，有序地写。</div>
+    </div>
+  </div>
+</section>
+<!-- ===== 模块七 逻辑推理与数字谜 ===== -->
+<section class="block wrap" id="m7">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M7</div>
+      <h2>逻辑推理与数字谜</h2>
+      <span class="pages">推理 · 等量代换 / 填数</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">这个模块考什么</div>
+        <p>根据已知条件推理判断，或在算式中填出合适的数字。核心是<b>找突破口、一步一步推</b>，常用等量代换、排除法和竖式进位分析。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:21%"><col style="width:45%"><col style="width:34%"></colgroup>
+          <thead><tr><th>考点</th><th>方法</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td><b>等量代换</b></td><td>用一个量替换相等的量，先求一份，再求所求。</td><td>1个西瓜=2个菠萝，1个菠萝=3个苹果，则1个西瓜=6个苹果。</td></tr>
+            <tr><td><b>比较排序</b></td><td>根据"比……大/小、高/矮"逐步排成一列。</td><td>由甲比乙高、丙比乙矮，推出 甲 &gt; 乙 &gt; 丙。</td></tr>
+            <tr><td><b>排除法</b></td><td>把不符合条件的答案逐一排除，剩下的就是。</td><td>选择题尤其好用。</td></tr>
+            <tr><td><b>竖式数字谜</b></td><td>从个位、从进位（或借位）入手，注意满十进一。</td><td>两个两位数相加，分析个位是否进位。</td></tr>
+            <tr><td><b>填运算符号</b></td><td>尝试填 +、−、×、÷，让等式成立；先猜后验。</td><td>凑成指定结果，如 3 □ 3 □ 3 = 12。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>
+          方法步骤：推理与填数
+        </div>
+        <ul class="steps">
+          <li><b>找突破口</b>：竖式从个位和进位入手；推理从信息最多的条件入手。</li>
+          <li><b>等量代换</b>：把相等的量替换，先求出一个基本量。</li>
+          <li><b>逐步推</b>：一个条件推出一个结论，作为下一步的依据。</li>
+          <li><b>代回验证</b>：把结果放回原算式，检查是否成立。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 1 个西瓜换 2 个菠萝，1 个菠萝换 3 个苹果，1 个西瓜换几个苹果？② 填空：3 ○ 3 ○ 3 = 12（填运算符号）。</div>
+          <div class="a"><b>解：</b>① 1 个西瓜 = 2 个菠萝 = 2×3 = 6 个苹果。<br>② 3×3+3 = 12，依次填 ×、+。</div>
+        </div>
+      </div>
+      <div class="tip"><b>小窍门：</b>数字谜先看个位、再看十位，特别留意"满十进一"和"退一当十"。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 模块八 周期问题 ===== -->
+<section class="block wrap" id="m8">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M8</div>
+      <h2>周期问题</h2>
+      <span class="pages">规律 · 循环重复</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">这个模块考什么</div>
+        <p>现象按固定的一组反复出现（星期几、报数、彩旗颜色、轮流值日），求"第几个是什么"或"某数有几个"。方法是<b>先找周期、再做除法看余数</b>。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:21%"><col style="width:45%"><col style="width:34%"></colgroup>
+          <thead><tr><th>考点</th><th>方法</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td><b>找周期</b></td><td>找出重复的一组，数出一组有几个（周期长度）。</td><td>红、黄、蓝循环，周期长度是 3。</td></tr>
+            <tr><td><b>求第几个</b></td><td>总数 ÷ 周期长度；余数是几就是组内第几个，没有余数就是组内最后一个。</td><td>第20面旗：20÷3=6 余2，是黄色。</td></tr>
+            <tr><td><b>求个数</b></td><td>先算完整的几组、各有几个，再加上余下部分中的个数。</td><td>前20面里红旗：6 组有6面，余下第1面是红，共7面。</td></tr>
+            <tr><td><b>星期 / 日期</b></td><td>每 7 天为一个周期，数天数后用除法看余数。</td><td>今天星期二，过 10 天是星期五。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></svg>
+          方法步骤：解周期问题
+        </div>
+        <ul class="steps">
+          <li><b>找周期</b>：确定重复的一组，数出周期长度。</li>
+          <li><b>做除法</b>：用总数除以周期长度，得到"几组余几个"。</li>
+          <li><b>看余数</b>：余数定位置（余几是第几个，余0是最后一个）。</li>
+          <li><b>数个数</b>：整组个数 + 余下部分中的个数。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">彩旗按"红、黄、蓝"循环排列：① 第 20 面是什么颜色？② 前 20 面里有几面红旗？</div>
+          <div class="a"><b>解：</b>① 周期长度3，20÷3=6（组）余2，余数2对应组内第2个，是黄色。<br>② 6 组里有 6 面红旗，余下 2 面中第1面是红旗，共 6+1=7 面。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>没有余数时误判成"第一个"。余 0 表示正好整组结束，对应组内<b>最后一个</b>。</div>
+    </div>
+  </div>
+</section>
+<!-- ===== 方法速查表 ===== -->
+<section class="block" id="methods">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">CHEAT SHEET</span>
+      <h2>解题方法速查表</h2>
+      <p>考前或做题时快速查阅，按题型找到对应的方法和关键关系。</p>
+    </div>
+    <div class="card" style="overflow:hidden">
+      <div class="tbl-wrap" style="margin-top:0;border:none;border-radius:0">
+        <table class="tbl">
+          <colgroup><col style="width:26%"><col style="width:74%"></colgroup>
+          <thead><tr><th>题型 / 模块</th><th>关键方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td><b>凑整巧算</b></td><td>先找凑整十、整百的数；换位带符号搬家，拆数去凑，多加要减、少加要补。</td></tr>
+            <tr><td><b>基准数法</b></td><td>各数都接近某整十数：先按基准数×个数，再把差额多退少补。</td></tr>
+            <tr><td><b>等差数列求和</b></td><td>奇数个：和=中间数×个数；偶数个：和=(首+末)×个数÷2。</td></tr>
+            <tr><td><b>找规律</b></td><td>依次看：相邻差 → 倍数 → 相邻和 → 隔一位分两列；图形看数量/位置/方向/阴影。</td></tr>
+            <tr><td><b>数线段 / 角</b></td><td>n 个点（或射线）：(n−1)+(n−2)+…+1。</td></tr>
+            <tr><td><b>数三角形</b></td><td>共顶点时 = 底边上线段数；复杂图形按底边或小块个数分类。</td></tr>
+            <tr><td><b>数长方形 / 方块</b></td><td>按小块个数（或边长）分类；方块分层数，别漏看不见的。</td></tr>
+            <tr><td><b>间隔 / 植树</b></td><td>两端栽=段+1，两端不栽=段−1，一端栽或封闭=段；锯木、爬楼、敲钟先数"间隔"。</td></tr>
+            <tr><td><b>移多补少</b></td><td>移动量 = 数量差÷2；数量差 = 移动量×2。不能把多的全给。</td></tr>
+            <tr><td><b>年龄问题</b></td><td>年龄差永不变；每过一年，每人各长 1 岁。</td></tr>
+            <tr><td><b>和差问题</b></td><td>大数=(和+差)÷2；小数=(和−差)÷2。</td></tr>
+            <tr><td><b>枚举计数</b></td><td>定顺序（从大到小/从多到少），分类后逐一列举，不重不漏。</td></tr>
+            <tr><td><b>推理 / 数字谜</b></td><td>等量代换、排除法；竖式从个位和进位入手，结果代回验证。</td></tr>
+            <tr><td><b>周期问题</b></td><td>总数÷周期长度，余数定位置（余0是最后一个），再算个数。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 备考规划 ===== -->
+<section class="block" id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">STUDY PLAN</span>
+      <h2>二年级备考规划与建议</h2>
+      <p>竞赛是长期的思维积累，低年级以兴趣和习惯为主，循序渐进、持之以恒。</p>
+    </div>
+    <div class="grid-2">
+      <div class="card" style="padding:24px 26px">
+        <h3 style="font-size:17px;color:var(--green-d);margin-bottom:14px">循序渐进的四步路径</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tt">第一步 · 打牢计算</div>
+            <div class="td">把表内乘除法、100 以内加减练到又快又准，每天 5～10 分钟口算。</div>
+          </div>
+          <div class="tl-item">
+            <div class="tt">第二步 · 分专题学方法</div>
+            <div class="td">按八大模块逐个学，理解每种方法的"为什么"，配合例题练手。</div>
+          </div>
+          <div class="tl-item">
+            <div class="tt">第三步 · 真题演练</div>
+            <div class="td">做低年级组真题，熟悉题型和时间，练习有序思考、画图分析。</div>
+          </div>
+          <div class="tl-item">
+            <div class="tt">第四步 · 错题复盘</div>
+            <div class="td">整理错题、写出错因，定期回顾，把"会做"变成"做对"。</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="padding:24px 26px;margin-bottom:18px">
+          <h3 style="font-size:17px;color:var(--green-d);margin-bottom:12px">给孩子的好习惯</h3>
+          <ul style="list-style:none">
+            <li style="padding:6px 0 6px 24px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:6px;color:var(--green);font-weight:900">1</span>读懂题再动手，圈出关键词和数字。</li>
+            <li style="padding:6px 0 6px 24px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:6px;color:var(--green);font-weight:900">2</span>多画图、多摆一摆，把关系画出来。</li>
+            <li style="padding:6px 0 6px 24px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:6px;color:var(--green);font-weight:900">3</span>有序思考，一类一类地数和列。</li>
+            <li style="padding:6px 0 6px 24px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:6px;color:var(--green);font-weight:900">4</span>做完检查，把答案放回题目验证。</li>
+            <li style="padding:6px 0 6px 24px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:6px;color:var(--green);font-weight:900">5</span>保持兴趣，把做题当作闯关游戏。</li>
+          </ul>
+        </div>
+        <div class="tip" style="margin-top:0">
+          <b>给家长的话：</b>低年级重在保护兴趣和信心，少比较、多鼓励。孩子卡壳时，用提问引导他自己想出来，比直接给答案更能锻炼思维。每一次"我想通了"的小成功，都是最好的动力。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--green-d);color:rgba(255,255,255,.85);padding:34px 0;margin-top:50px">
+  <div class="wrap" style="text-align:center">
+    <div style="font-weight:900;color:#fff;font-size:17px;margin-bottom:8px">华数之星 · 二年级考点与解题方法全解</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.7)">思维启蒙，重在兴趣与方法；慢慢来，每一步都算数。</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script>
+(function(){
+  var chart = echarts.init(document.getElementById('chartImportance'));
+  var data = [
+    {name:'速算与巧算', v:95},
+    {name:'典型应用题', v:88},
+    {name:'找规律', v:85},
+    {name:'巧数图形', v:80},
+    {name:'间隔与植树', v:75},
+    {name:'逻辑推理与数字谜', v:72},
+    {name:'枚举与计数', v:70},
+    {name:'周期问题', v:65}
+  ];
+  chart.setOption({
+    grid:{left:130,right:46,top:14,bottom:24},
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:function(p){return p[0].name+'：重要度 '+p[0].value;}},
+    xAxis:{type:'value',max:100,axisLabel:{color:'#7A8A82',fontSize:12},splitLine:{lineStyle:{color:'#EAEFEB'}}},
+    yAxis:{type:'category',inverse:true,data:data.map(function(d){return d.name;}),axisLabel:{color:'#22302A',fontSize:13,fontWeight:600},axisLine:{show:false},axisTick:{show:false}},
+    series:[{
+      type:'bar',data:data.map(function(d){return d.v;}),barWidth:16,
+      itemStyle:{borderRadius:[0,8,8,0],color:{type:'linear',x:0,y:0,x2:1,y2:0,colorStops:[{offset:0,color:'#3BA47E'},{offset:1,color:'#1E7A5B'}]}},
+      label:{show:true,position:'right',color:'#145C44',fontWeight:700,fontSize:12}
+    }]
+  });
+  window.addEventListener('resize',function(){chart.resize();});
+})();
+</script>
+</body>
+</html>

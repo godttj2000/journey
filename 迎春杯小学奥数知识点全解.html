@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>迎春杯 · 整个小学奥数竞赛知识点与解题方法全解</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231E7A5B'/><text x='50' y='70' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>春</text></svg>">
+<style>
+:root{
+  --green:#1E7A5B; --green-d:#145C44; --green-l:#3BA47E; --green-bg:#EAF5EF;
+  --red:#C7544A; --red-bg:#FBECEA;
+  --orange:#EE8445; --orange-d:#D96B2B; --orange-bg:#FDF0E6;
+  --blue:#4A7FB5; --blue-d:#35629A; --blue-bg:#EBF2F9;
+  --purple:#7A5BA0; --purple-bg:#F1ECF7;
+  --teal:#2E8B8B; --teal-bg:#E6F3F3;
+  --ink:#22302A; --ink-2:#4C5E55; --ink-3:#7A8A82;
+  --paper:#F6F9F5; --card:#FFFFFF; --line:#E2EAE4;
+  --yellow-bg:#FCF6E3;
+  --shadow:0 2px 10px rgba(26,70,53,.07); --shadow-h:0 8px 24px rgba(26,70,53,.13);
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans SC",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+::selection{background:var(--green-l);color:#fff}
+a{color:var(--green);text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{line-height:1.3;font-weight:700}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1120px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:8px}
+.nav-logo{display:flex;align-items:center;gap:9px;font-weight:900;color:var(--green-d);font-size:17px;white-space:nowrap;margin-right:10px}
+.nav-logo .mk{width:32px;height:32px;background:var(--green);border-radius:9px;display:grid;place-items:center;color:#fff;font-size:16px}
+.nav-links{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:7px 11px;border-radius:8px;font-size:14px;color:var(--ink-2);white-space:nowrap;font-weight:500}
+.nav-links a:hover{background:var(--green-bg);color:var(--green-d)}
+
+.hero{background:linear-gradient(135deg,#145C44 0%,#1E7A5B 55%,#2E9474 100%);color:#fff;padding:64px 0 78px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 15%,rgba(255,255,255,.14) 0,transparent 42%),radial-gradient(circle at 8% 92%,rgba(255,255,255,.08) 0,transparent 40%)}
+.hero-in{position:relative;max-width:1120px;margin:0 auto;padding:0 24px}
+.hero .tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:6px 15px;border-radius:30px;font-size:13.5px;font-weight:500;margin-bottom:22px}
+.hero h1{font-size:clamp(27px,4.3vw,42px);font-weight:900;margin-bottom:15px}
+.hero h1 .hl{color:#FFD9A8}
+.hero p.sub{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.9);max-width:780px;font-weight:300}
+.hero-badges{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
+.hb{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:11px 17px;font-size:14px;font-weight:500}
+.hb b{font-size:16px}
+
+section.block{padding-block:60px 8px}
+.sec-head{margin-bottom:30px;max-width:860px}
+.sec-kicker{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:10px}
+.sec-kicker::before{content:"";width:22px;height:3px;background:var(--green);border-radius:2px}
+.sec-head h2{font-size:clamp(23px,2.9vw,30px);color:var(--green-d);margin-bottom:9px}
+.sec-head p{color:var(--ink-2);font-size:15.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.role-card{padding:25px;position:relative}
+.role-card .rt{display:inline-flex;align-items:center;gap:8px;font-size:16.5px;font-weight:900;padding:6px 14px;border-radius:9px;margin-bottom:14px}
+.role-card .rt .ic{width:22px;height:22px}
+.role-card.c1 .rt{background:var(--blue-bg);color:var(--blue-d)}
+.role-card.c2 .rt{background:var(--green-bg);color:var(--green-d)}
+.role-card.c3 .rt{background:var(--orange-bg);color:var(--orange-d)}
+.role-card .desc{font-size:14px;color:var(--ink-2);margin-bottom:13px}
+.role-card .lbl{font-size:12.5px;font-weight:700;color:var(--ink-3);letter-spacing:1px;margin-bottom:6px}
+.role-card ul{list-style:none}
+.role-card ul li{position:relative;padding:5px 0 5px 20px;font-size:13.5px;color:var(--ink)}
+.role-card ul li::before{content:"";position:absolute;left:3px;top:13px;width:7px;height:7px;border-radius:50%}
+.role-card.c1 ul li::before{background:var(--blue)}
+.role-card.c2 ul li::before{background:var(--green-l)}
+.role-card.c3 ul li::before{background:var(--orange)}
+
+.grade-card{padding:22px 23px}
+.grade-card .gt{font-size:16px;font-weight:900;margin-bottom:4px}
+.grade-card .gmeta{font-size:12.5px;color:var(--ink-3);margin-bottom:12px}
+.grade-card ul{list-style:none}
+.grade-card ul li{position:relative;padding:5px 0 5px 21px;font-size:13.5px;color:var(--ink)}
+.grade-card ul li::before{content:"";position:absolute;left:3px;top:12px;width:7px;height:7px;border-radius:50%;background:var(--green-l)}
+.grade-card.g1{border-top:4px solid var(--green-l)}
+.grade-card.g2{border-top:4px solid var(--orange)}
+.grade-card.g3{border-top:4px solid var(--purple)}
+.grade-card.g1 .gt{color:var(--green-d)}
+.grade-card.g2 .gt{color:var(--orange-d)}
+.grade-card.g3 .gt{color:var(--purple)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{background:var(--green);color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:13px}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:nth-child(even) td{background:#F7FAF8}
+.tbl-wrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:14px}
+
+.gtag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}
+.gtag.low{background:var(--green-bg);color:var(--green-d)}
+.gtag.mid{background:var(--orange-bg);color:var(--orange-d)}
+.gtag.high{background:var(--purple-bg);color:var(--purple)}
+
+.unit{margin-bottom:26px;scroll-margin-top:78px}
+.unit-head{display:flex;align-items:center;gap:15px;background:linear-gradient(120deg,var(--green-d),var(--green));color:#fff;border-radius:var(--r) var(--r) 0 0;padding:20px 26px}
+.unit-head .badge{flex-shrink:0;width:50px;height:50px;background:rgba(255,255,255,.16);border-radius:12px;display:grid;place-items:center;font-size:17px;font-weight:900}
+.unit-head h2{font-size:20px}
+.unit-head .pages{margin-left:auto;font-size:13px;background:rgba(255,255,255,.15);padding:5px 13px;border-radius:20px;white-space:nowrap}
+.unit-body{background:var(--card);border:1px solid var(--line);border-top:none;border-radius:0 0 var(--r) var(--r);padding:26px;box-shadow:var(--shadow)}
+
+.goals{background:var(--green-bg);border:1px solid #C9E2D5;border-radius:11px;padding:13px 17px;margin-bottom:6px}
+.goals .gt{font-size:13px;font-weight:900;color:var(--green-d);margin-bottom:5px}
+.goals p{font-size:13.5px;color:#3C6B57}
+
+.method-box{background:var(--yellow-bg);border:1px solid #EEDFAE;border-radius:11px;padding:15px 18px;margin-top:12px}
+.method-box .mt{font-size:13.5px;font-weight:900;color:#8A5A17;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.steps{list-style:none;counter-reset:st}
+.steps li{counter-increment:st;position:relative;padding:6px 0 6px 34px;font-size:13.5px;color:#5C4A24;border-bottom:1px dashed #E6D8AC;line-height:1.65}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(st);position:absolute;left:2px;top:7px;width:23px;height:23px;background:#D9A94E;color:#fff;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700}
+.steps li b{color:#8A5A17}
+
+.formula{background:var(--green-bg);border:1px solid #C9E2D5;border-radius:11px;padding:13px 17px;margin-top:12px}
+.formula .f{font-size:14.5px;font-weight:700;color:var(--green-d);text-align:center;letter-spacing:.3px}
+.formula .note{font-size:12.5px;color:#4C7A68;margin-top:5px;text-align:center}
+
+.example{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin-top:12px}
+.example .exh{background:var(--blue-bg);color:var(--blue);font-size:13px;font-weight:700;padding:8px 15px;display:flex;align-items:center;gap:7px}
+.example .exb{padding:13px 16px;font-size:14px}
+.example .exb .q{color:var(--ink);margin-bottom:8px}
+.example .exb .a{color:var(--green-d);font-size:13.5px;background:var(--green-bg);border-radius:8px;padding:9px 12px}
+.example .exb .a b{color:var(--green)}
+
+.tip{background:var(--blue-bg);border:1px solid #C9DBEC;border-radius:11px;padding:13px 16px;margin-top:12px;font-size:13.5px;color:#375E86}
+.tip b{color:#2C5378}
+.warn{background:var(--red-bg);border:1px solid #EBC9C5;border-radius:11px;padding:13px 16px;margin-top:12px;font-size:13.5px;color:#94403A}
+.warn b{color:var(--red)}
+
+.chart-box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:20px 22px;margin-top:14px}
+.chart-box .ct{font-size:14px;font-weight:900;color:var(--green-d);margin-bottom:2px}
+.chart-box .cn{font-size:12.5px;color:var(--ink-3);margin-bottom:8px}
+.chart{width:100%;height:380px}
+
+.route{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:14px}
+.route .rc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 13px;position:relative}
+.route .rc .yr{font-size:14px;font-weight:900;color:var(--green-d);margin-bottom:2px}
+.route .rc .stg{font-size:11.5px;color:var(--ink-3);margin-bottom:8px}
+.route .rc ul{list-style:none}
+.route .rc ul li{font-size:12px;color:var(--ink-2);padding:2px 0 2px 11px;position:relative;line-height:1.5}
+.route .rc ul li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--green-l)}
+
+@media (max-width:1000px){.route{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:920px){
+  .grid-3{grid-template-columns:1fr 1fr}
+  .grid-2{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  section.block{padding-block:44px 6px}
+  .nav-in{padding:0 13px;height:54px}
+  .nav-logo{font-size:15px;margin-right:6px}
+  .nav-logo .mk{width:29px;height:29px;font-size:15px}
+  .nav-links a{padding:6px 10px;font-size:13.5px}
+  .hero{padding:46px 0 58px}
+  .grid-3,.grid-2{grid-template-columns:1fr;gap:16px}
+  .route{grid-template-columns:1fr 1fr;gap:11px}
+  .chart{height:440px}
+  .unit-head{flex-wrap:wrap;gap:11px;padding:17px 19px}
+  .unit-head .badge{width:44px;height:44px;font-size:15px}
+  .unit-head h2{font-size:17px;flex-basis:calc(100% - 60px)}
+  .unit-head .pages{margin-left:0;font-size:12.5px}
+  .unit-body{padding:19px 16px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-in">
+    <div class="nav-logo"><span class="mk">春</span>迎春杯·全小学</div>
+    <div class="nav-links">
+      <a href="#overview">竞赛总览</a>
+      <a href="#t1">计算</a>
+      <a href="#t2">数论</a>
+      <a href="#t3">几何</a>
+      <a href="#t4">应用题</a>
+      <a href="#t5">行程</a>
+      <a href="#t6">计数</a>
+      <a href="#t7">数字谜</a>
+      <a href="#t8">组合逻辑</a>
+      <a href="#route">年级路线</a>
+      <a href="#methods">速查表</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <span class="tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+      覆盖小学 1–6 年级 · 完整奥数竞赛知识体系
+    </span>
+    <h1>迎春杯奥数竞赛<br><span class="hl">小学全阶段知识点与解题方法全解</span></h1>
+    <p class="sub">"迎春杯"是北京及全国历史悠久、含金量高的经典小学数学活动，现以"数学花园探秘 / 迎春之星"等形式延续。本手册按八大专题，把整个小学（1–6 年级）的奥数考点、方法、公式与例题系统整理，并标注各知识点适合的年级，帮孩子从入门到高年级建立完整的知识体系。</p>
+    <div class="hero-badges">
+      <span class="hb"><b>八大专题</b>　体系完整</span>
+      <span class="hb"><b>分年级</b>　循序渐进</span>
+      <span class="hb"><b>考点+方法</b>　一表掌握</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 竞赛总览 ===== -->
+<section class="block" id="overview">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">ABOUT THE CONTEST</span>
+      <h2>先了解：迎春杯是什么、怎么分组</h2>
+      <p>迎春杯命题遵循"创新、多元、挑战、人文智趣"，题目灵活、重视思维，低年级重在兴趣与动手，高年级重在逻辑与综合。</p>
+    </div>
+    <div class="grid-3">
+      <div class="card role-card c1">
+        <span class="rt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v4h1"/></svg>它是什么</span>
+        <div class="desc">迎春杯始于 1984 年，是国内历史最久的小学数学活动之一，后以"数学花园探秘""迎春之星"等名称延续，影响力大、含金量高。</div>
+        <div class="lbl">特点</div>
+        <ul>
+          <li>历史悠久、命题严谨</li>
+          <li>题型新颖、重思维过程</li>
+          <li>贴近生活、有人文趣味</li>
+          <li>分初赛、决赛等环节</li>
+        </ul>
+      </div>
+      <div class="card role-card c2">
+        <span class="rt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>怎么考</span>
+        <div class="desc">按学段分组、线下笔试，以填空题为主（填空 I、填空 II，分值递增），部分年级有解答题，看重独立思考与结果。</div>
+        <div class="lbl">常见题型</div>
+        <ul>
+          <li>填空题 I：基础题</li>
+          <li>填空题 II：提高题</li>
+          <li>解答题 / 操作题</li>
+          <li>按分组分别评奖</li>
+        </ul>
+      </div>
+      <div class="card role-card c3">
+        <span class="rt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 15l3 3-3 3"/></svg>考什么</span>
+        <div class="desc">可归为八大专题：计算、数论、几何、应用题、行程、计数、数字谜、组合逻辑。高年级题目常跨专题、强调综合。</div>
+        <div class="lbl">八大专题</div>
+        <ul>
+          <li>计算、数论、几何</li>
+          <li>应用题、行程</li>
+          <li>计数、数字谜</li>
+          <li>组合与逻辑</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:40px">
+      <span class="sec-kicker">GRADE GROUPS</span>
+      <h2>三个年级分组，难度逐级提升</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card grade-card g1">
+        <div class="gt">入门组（1–2 年级）</div>
+        <div class="gmeta">侧重动手能力与基础逻辑</div>
+        <ul>
+          <li>100 以内加减、表内乘除</li>
+          <li>找规律、简单图形计数</li>
+          <li>移多补少、间隔、排队</li>
+          <li>七巧板、火柴棒、智巧趣题</li>
+          <li>体会"数学好玩"，鼓励参与</li>
+        </ul>
+      </div>
+      <div class="card grade-card g2">
+        <div class="gt">中年级组（3–4 年级）</div>
+        <div class="gmeta">侧重逻辑思维与方法成型</div>
+        <ul>
+          <li>整数四则巧算、运算定律</li>
+          <li>和差倍、鸡兔同笼、盈亏</li>
+          <li>周长面积、初步数论（整除）</li>
+          <li>加乘原理、枚举计数</li>
+          <li>行程（相遇、追及）初步</li>
+        </ul>
+      </div>
+      <div class="card grade-card g3">
+        <div class="gt">高年级组（5–6 年级）</div>
+        <div class="gmeta">侧重综合运用与抽象推理</div>
+        <ul>
+          <li>分数小数、裂项、定义新运算</li>
+          <li>质数合数、约数倍数、同余</li>
+          <li>几何模型、圆与扇形、立体</li>
+          <li>分数应用题、工程、浓度</li>
+          <li>排列组合、行程综合、抽屉</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <div class="ct">八大专题的分值权重（经验示意）</div>
+      <div class="cn">根据小学奥数及迎春杯常见命题整理，非官方比例，随年级略有变化，仅供安排复习参考。</div>
+      <div class="chart" id="chartWeight"></div>
+    </div>
+  </div>
+</section>
+<!-- ===== 专题一 计算 ===== -->
+<section class="block wrap" id="t1">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">T1</div>
+      <h2>计算 · 速算与巧算</h2>
+      <span class="pages">基础中的基础</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本专题考什么</div>
+        <p>计算是所有奥数题的根基，要求<b>又快又准、会巧算</b>。核心思想：凑整优先、化繁为简、相同部分用乘法，高年级再掌握分数、裂项和定义新运算。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:23%"><col style="width:13%"><col style="width:64%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>四则运算顺序</td><td><span class="gtag low">入门</span></td><td>有括号先算括号；先乘除后加减；同级从左到右。</td></tr>
+            <tr><td>凑整法</td><td><span class="gtag low">入门</span></td><td>换位凑整、拆项凑整、加补凑整，先凑整十、整百。</td></tr>
+            <tr><td>带符号搬家 / 抵消</td><td><span class="gtag low">入门</span></td><td>数字带 +− 符号一起搬；同数一加一减可抵消。</td></tr>
+            <tr><td>变加为乘</td><td><span class="gtag low">入门</span></td><td>几个相同加数的和 = 加数 × 个数。</td></tr>
+            <tr><td>运算定律</td><td><span class="gtag mid">中年级</span></td><td>交换律、结合律、乘法分配律 a×(b+c)=a×b+a×c。</td></tr>
+            <tr><td>基准数法</td><td><span class="gtag mid">中年级</span></td><td>各数接近某整十数：基准数×个数，再多退少补。</td></tr>
+            <tr><td>提取公因数</td><td><span class="gtag mid">中年级</span></td><td>a×b+a×c = a×(b+c)；变式 a÷b±c÷b =(a±c)÷b。</td></tr>
+            <tr><td>等差数列求和</td><td><span class="gtag mid">中年级</span></td><td>奇数个：中间数×个数；偶数个：(首+末)×个数÷2。</td></tr>
+            <tr><td>估算（整数部分）</td><td><span class="gtag mid">中年级</span></td><td>扩缩法：把每项放大、缩小，确定结果的整数部分。</td></tr>
+            <tr><td>分数小数混合</td><td><span class="gtag high">高年级</span></td><td>加减统一化小数（能化成有限小数时），乘除统一化分数。</td></tr>
+            <tr><td>繁分数化简</td><td><span class="gtag high">高年级</span></td><td>分子分母分别算，或同乘一个数消去分母；带分数↔假分数。</td></tr>
+            <tr><td>裂项</td><td><span class="gtag high">高年级</span></td><td>1/(n(n+1))=1/n−1/(n+1)，使中间项抵消。</td></tr>
+            <tr><td>定义新运算</td><td><span class="gtag high">高年级</span></td><td>严格按题目给的符号规则代入，先括号内、注意顺序。</td></tr>
+            <tr><td>比较大小</td><td><span class="gtag high">高年级</span></td><td>通分（通分母/通分子）、与中介比、利用倒数性质。</td></tr>
+            <tr><td>特殊数列求和</td><td><span class="gtag high">高年级</span></td><td>1+2+…+n=n(n+1)/2；平方和、立方和公式；1001=7×11×13。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">1+2+…+n = n(n+1)/2　｜　1²+2²+…+n² = n(n+1)(2n+1)/6　｜　1³+2³+…+n³ = (1+2+…+n)²</div>
+        <div class="note">裂项：1/[n(n+1)] = 1/n − 1/(n+1)。</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+          方法步骤：巧算
+        </div>
+        <ul class="steps">
+          <li><b>观察</b>：找凑整、找公因数、找相同结构。</li>
+          <li><b>变形</b>：搬家、拆数、提取公因数或裂项。</li>
+          <li><b>先算整</b>：优先算整十、整百、可抵消部分。</li>
+          <li><b>补差验证</b>：多退少补，检查结果。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">①（入门）1+2+…+10。②（高年级）1/(1×2)+1/(2×3)+1/(3×4)。</div>
+          <div class="a"><b>解：</b>① (1+10)×5 = 55。<br>② = (1−1/2)+(1/2−1/3)+(1/3−1/4) = 1−1/4 = 3/4。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 专题二 数论 ===== -->
+<section class="block wrap" id="t2">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">T2</div>
+      <h2>数论 · 整数的性质</h2>
+      <span class="pages">高年级重点</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本专题考什么</div>
+        <p>研究整数的规律：奇偶、整除、质数合数、约数倍数、余数与同余。低年级从单双数入手，高年级进入<b>分解质因数、约数个数、同余</b>等抽象内容。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:23%"><col style="width:13%"><col style="width:64%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 特征</th></tr></thead>
+          <tbody>
+            <tr><td>奇偶性</td><td><span class="gtag low">入门</span></td><td>奇±奇=偶，奇±偶=奇，偶±偶=偶；奇×偶=偶，奇×奇=奇。</td></tr>
+            <tr><td>位值原理</td><td><span class="gtag mid">中年级</span></td><td>三位数 ab̅c̅ = 100a+10b+c，按数位拆开。</td></tr>
+            <tr><td>整除特征（2/5）</td><td><span class="gtag mid">中年级</span></td><td>2：末尾0,2,4,6,8；5：末尾0或5。</td></tr>
+            <tr><td>整除特征（3/9）</td><td><span class="gtag mid">中年级</span></td><td>各位数字之和是 3（或9）的倍数。</td></tr>
+            <tr><td>整除特征（4/25、8/125）</td><td><span class="gtag high">高年级</span></td><td>看末两位（4/25）、末三位（8/125）。</td></tr>
+            <tr><td>带余除法</td><td><span class="gtag mid">中年级</span></td><td>a=b×q+r，0≤r&lt;b；被除数=除数×商+余数。</td></tr>
+            <tr><td>质数与合数</td><td><span class="gtag high">高年级</span></td><td>质数只有1和自身两个因数；1既不是质数也不是合数。</td></tr>
+            <tr><td>分解质因数</td><td><span class="gtag high">高年级</span></td><td>唯一分解：n=p₁^a₁×p₂^a₂…，用短除法。</td></tr>
+            <tr><td>约数 / 倍数</td><td><span class="gtag high">高年级</span></td><td>最大公因数、最小公倍数；约数个数=(a₁+1)(a₂+1)…</td></tr>
+            <tr><td>同余</td><td><span class="gtag high">高年级</span></td><td>a≡b(mod m)；和差积的余数 = 余数的和差积。</td></tr>
+            <tr><td>完全平方数</td><td><span class="gtag high">高年级</span></td><td>约数个数为奇数；A²−B²=(A+B)(A−B)。</td></tr>
+            <tr><td>中国剩余定理 / 辗转相除</td><td><span class="gtag high">高年级</span></td><td>多个整除条件合并；辗转相除法求最大公因数。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">若 n = p₁^a₁ × p₂^a₂，约数个数 = (a₁+1)(a₂+1)；a ≡ b (mod m) 表示除以 m 余数相同</div>
+        <div class="note">3 的倍数看数字和，如 342：3+4+2=9，能被 3 整除。</div>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">①（中年级）342 能被 3 整除吗？②（高年级）求 36 的约数个数。</div>
+          <div class="a"><b>解：</b>① 3+4+2=9，是 3 的倍数，能整除。<br>② 36=2²×3²，约数个数=(2+1)(2+1)=9 个。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>把 1 当质数；忘记"余数必须比除数小"；约数个数忘了给指数加 1。</div>
+    </div>
+  </div>
+</section>
+<!-- ===== 专题三 几何 ===== -->
+<section class="block wrap" id="t3">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">T3</div>
+      <h2>几何 · 平面与立体</h2>
+      <span class="pages">图形与空间</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本专题考什么</div>
+        <p>从认图形、数图形、求周长，到面积、几何模型、立体图形。核心方法：<b>分类数、公式算、割补转化、等积变形</b>；高年级重点是面积比例模型和立体的表面积与体积。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:23%"><col style="width:13%"><col style="width:64%"></colgroup>
+          <thead><tr><th>平面几何考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>认识图形 / 七巧板</td><td><span class="gtag low">入门</span></td><td>辨认长方形、正方形、三角形、平行四边形、圆；拼搭图形。</td></tr>
+            <tr><td>数线段 / 角 / 三角形</td><td><span class="gtag low">入门</span></td><td>分类数；n 个点线段数=(n−1)+…+1。</td></tr>
+            <tr><td>周长</td><td><span class="gtag mid">中年级</span></td><td>长方形周长=(长+宽)×2；正方形周长=边长×4；不规则图形平移割补。</td></tr>
+            <tr><td>长方形 / 正方形面积</td><td><span class="gtag mid">中年级</span></td><td>长方形面积=长×宽；正方形面积=边长×边长。</td></tr>
+            <tr><td>角 / 内角和</td><td><span class="gtag mid">中年级</span></td><td>直角、锐角、钝角；N 边形内角和=(N−2)×180°。</td></tr>
+            <tr><td>三角形面积 / 等积变形</td><td><span class="gtag high">高年级</span></td><td>三角形面积=底×高÷2；等底等高面积相等。</td></tr>
+            <tr><td>五大面积模型</td><td><span class="gtag high">高年级</span></td><td>等积、鸟头、蝴蝶、燕尾、相似；面积比=相关线段比或其平方。</td></tr>
+            <tr><td>勾股定理 / 弦图</td><td><span class="gtag high">高年级</span></td><td>直角三角形 a²+b²=c²；借助弦图求面积。</td></tr>
+            <tr><td>圆与扇形</td><td><span class="gtag high">高年级</span></td><td>圆周长=2πr，面积=πr²；扇形按圆心角比例算。</td></tr>
+            <tr><td>格点与面积</td><td><span class="gtag high">高年级</span></td><td>分割法 / 皮克定理，数格点、数方格。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:23%"><col style="width:13%"><col style="width:64%"></colgroup>
+          <thead><tr><th>立体几何考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>数方块 / 认识立体</td><td><span class="gtag mid">中年级</span></td><td>分层数（含看不见的）；认识长方体、正方体。</td></tr>
+            <tr><td>表面积</td><td><span class="gtag high">高年级</span></td><td>长方体=2(长×宽+长×高+宽×高)；不规则整体观照。</td></tr>
+            <tr><td>体积</td><td><span class="gtag high">高年级</span></td><td>长方体=长×宽×高；等积变形（水中浸物，V升水=V物）。</td></tr>
+            <tr><td>三视图 / 展开图</td><td><span class="gtag high">高年级</span></td><td>由三视图还原方块数；展开图判断最短路线。</td></tr>
+            <tr><td>立体染色</td><td><span class="gtag high">高年级</span></td><td>三面染色在顶点、两面在棱上、一面在面心，按位置分类。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">三角形面积 = 底×高÷2　｜　圆面积 = πr²　｜　长方体体积 = 长×宽×高</div>
+        <div class="note">组合图形：化整为零、先补后去、正反结合。</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M12 2l9 4v6c0 5-4 8-9 10-5-2-9-5-9-10V6z"/></svg>
+          方法步骤：解几何题
+        </div>
+        <ul class="steps">
+          <li><b>读题看图</b>：找已知的边、角、面积，圈出所求。</li>
+          <li><b>割补转化</b>：不规则图形割补成熟悉图形；平移旋转找关系。</li>
+          <li><b>选公式/模型</b>：套用面积、体积公式或比例模型。</li>
+          <li><b>计算验证</b>：算出结果，用面积/体积不变检验。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">①（中年级）长 6cm、宽 4cm 的长方形，周长和面积各是多少？②（高年级）底 8、高 5 的三角形面积是多少？</div>
+          <div class="a"><b>解：</b>① 周长=(6+4)×2=20cm；面积=6×4=24cm²。<br>② 面积=8×5÷2=20。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 专题四 应用题 ===== -->
+<section class="block wrap" id="t4">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">T4</div>
+      <h2>经典应用题</h2>
+      <span class="pages">数量关系 · 建模</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本专题考什么</div>
+        <p>把生活问题转化为数量关系。方法：<b>读懂题、画线段图、找关系、列式</b>；从入门的比多比少，到中年级的和差倍、鸡兔同笼，再到高年级的工程、分数应用题。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:23%"><col style="width:13%"><col style="width:64%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>比多比少 / 移多补少</td><td><span class="gtag low">入门</span></td><td>多/少用减法；移动量=差÷2。</td></tr>
+            <tr><td>年龄问题</td><td><span class="gtag low">入门</span></td><td>年龄差不变；同时增减；倍数会变。</td></tr>
+            <tr><td>植树 / 方阵</td><td><span class="gtag mid">中年级</span></td><td>两端栽=段+1；方阵外圈=(边长−1)×4。</td></tr>
+            <tr><td>和差 / 和倍 / 差倍</td><td><span class="gtag mid">中年级</span></td><td>大数=(和+差)÷2；和÷(倍数+1)=小数；差÷(倍数−1)=小数。</td></tr>
+            <tr><td>平均数</td><td><span class="gtag mid">中年级</span></td><td>平均数=总和÷个数；可用移多补少理解。</td></tr>
+            <tr><td>鸡兔同笼</td><td><span class="gtag mid">中年级</span></td><td>假设法：假设全是鸡，多出的脚÷2 得兔数。</td></tr>
+            <tr><td>盈亏问题</td><td><span class="gtag mid">中年级</span></td><td>比较两种分配的差量，差÷每份差=人数。</td></tr>
+            <tr><td>逆推 / 代换</td><td><span class="gtag mid">中年级</span></td><td>从结果倒推（加减互逆、乘除互逆）；等价代换。</td></tr>
+            <tr><td>牛吃草</td><td><span class="gtag high">高年级</span></td><td>原有草量=(牛吃速度−草长速度)×时间。</td></tr>
+            <tr><td>工程问题</td><td><span class="gtag high">高年级</span></td><td>把总量看作1，工作效率=1/时间，合作效率相加。</td></tr>
+            <tr><td>分数应用题（量率对应）</td><td><span class="gtag high">高年级</span></td><td>找单位"1"，分量=单位1×对应分率，以不变量为1。</td></tr>
+            <tr><td>浓度 / 利润 / 按比分配</td><td><span class="gtag high">高年级</span></td><td>浓度=溶质÷溶液；十字交叉；按比例分各部分。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">和差：大数=(和+差)÷2　｜　鸡兔同笼：兔数=(总脚−2×总头)÷2　｜　工程：效率=1/时间</div>
+        <div class="note">画线段图是理解和差倍、分数应用题的关键。</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
+          方法步骤：解应用题
+        </div>
+        <ul class="steps">
+          <li><b>读题</b>：圈关键数字和词，明确已知和问题。</li>
+          <li><b>画图</b>：线段图、示意图表示数量关系。</li>
+          <li><b>定类型</b>：判断和差倍、鸡兔同笼、工程等。</li>
+          <li><b>列式检验</b>：列式计算，答案放回题意验证。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">①（中年级）鸡兔同笼，共 10 头、26 只脚，鸡兔各几只？②（中年级）两数和 20、差 4，求两数。</div>
+          <div class="a"><b>解：</b>① 假设全是鸡应有20脚，多6脚，兔=6÷2=3 只，鸡=7 只。<br>② 大数=(20+4)÷2=12，小数=8。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>没找准单位"1"；鸡兔同笼假设后忘了把差除以2；倍数问题把"和"直接除以倍数。</div>
+    </div>
+  </div>
+</section>
+<!-- ===== 专题五 行程 ===== -->
+<section class="block wrap" id="t5">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">T5</div>
+      <h2>行程问题</h2>
+      <span class="pages">路程 · 速度 · 时间</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本专题考什么</div>
+        <p>研究运动中路程、速度、时间的关系。基本关系 <b>路程=速度×时间</b>；中年级学相遇、追及，高年级学流水、火车过桥、多次相遇、环形跑道与钟表问题。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:23%"><col style="width:13%"><col style="width:64%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>单人行路</td><td><span class="gtag low">入门</span></td><td>路程=速度×时间；速度=路程÷时间；时间=路程÷速度。</td></tr>
+            <tr><td>相遇问题</td><td><span class="gtag mid">中年级</span></td><td>总路程=速度和×相遇时间。</td></tr>
+            <tr><td>追及问题</td><td><span class="gtag mid">中年级</span></td><td>路程差=速度差×追及时间。</td></tr>
+            <tr><td>火车过桥</td><td><span class="gtag high">高年级</span></td><td>车长+桥长=速度×时间；错车：两车长之和=速度和×时间。</td></tr>
+            <tr><td>流水行船</td><td><span class="gtag high">高年级</span></td><td>顺水=船速+水速；逆水=船速−水速；船速=(顺+逆)÷2。</td></tr>
+            <tr><td>多次相遇 / 环形跑道</td><td><span class="gtag high">高年级</span></td><td>线型每多遇一次共走2个全程；环形共走全程数=相遇次数。</td></tr>
+            <tr><td>钟表追及</td><td><span class="gtag high">高年级</span></td><td>分针速度 6°/分、时针 0.5°/分，按追及问题求重合/成角。</td></tr>
+            <tr><td>正反比例</td><td><span class="gtag high">高年级</span></td><td>路程一定，速度与时间成反比；速度一定，路程与时间成正比。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">相遇：路程和=速度和×时间　｜　追及：路程差=速度差×时间　｜　顺水速=船速+水速</div>
+        <div class="note">画图（线段图、柳卡图）标清方向、速度和各段路程是关键。</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M5 22h14M5 22V8l7-5 7 5v14M9 22v-6h6v6"/></svg>
+          方法步骤：解行程题
+        </div>
+        <ul class="steps">
+          <li><b>画图</b>：画线段图，标出起点、方向、速度、相遇点。</li>
+          <li><b>定类型</b>：相遇、追及、流水还是火车过桥。</li>
+          <li><b>选公式</b>：用速度和/速度差、相对速度列式。</li>
+          <li><b>计算检验</b>：统一单位，结果放回路线核对。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">①（中年级）甲、乙从两地相向而行，甲速 40、乙速 50，3 小时相遇，两地相距多远？②（高年级）船速 20、水速 4，顺水速度是多少？</div>
+          <div class="a"><b>解：</b>① 速度和 90，路程=90×3=270。<br>② 顺水速度=20+4=24。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>相遇用速度差、追及用速度和（正好相反）；单位不统一（千米/小时 与 米/分混用）。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 专题六 计数 ===== -->
+<section class="block wrap" id="t6">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">T6</div>
+      <h2>计数 · 加乘原理与排列组合</h2>
+      <span class="pages">数方法 · 数个数</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本专题考什么</div>
+        <p>数出完成一件事有多少种方法。核心：<b>分类用加法、分步用乘法</b>；中年级学加乘原理和枚举，高年级学排列组合、容斥、抽屉原理。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:23%"><col style="width:13%"><col style="width:64%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>分类枚举</td><td><span class="gtag low">入门</span></td><td>按顺序一一列举，不重不漏。</td></tr>
+            <tr><td>加法原理</td><td><span class="gtag mid">中年级</span></td><td>完成一件事有几类方法，方法数=各类方法数之和。</td></tr>
+            <tr><td>乘法原理</td><td><span class="gtag mid">中年级</span></td><td>分几步完成，方法数=每步方法数相乘。</td></tr>
+            <tr><td>排列</td><td><span class="gtag high">高年级</span></td><td>与顺序有关：A(n,m)=n×(n−1)…，如排队、编号。</td></tr>
+            <tr><td>组合</td><td><span class="gtag high">高年级</span></td><td>与顺序无关：C(n,m)=A(n,m)/m!，如选人、握手。</td></tr>
+            <tr><td>容斥原理</td><td><span class="gtag high">高年级</span></td><td>两类：总数=A+B−AB；三类再 +ABC 减两两交集。</td></tr>
+            <tr><td>抽屉原理</td><td><span class="gtag high">高年级</span></td><td>物品数多于抽屉数，至少有一个抽屉放多个；求"至少"。</td></tr>
+            <tr><td>图形计数</td><td><span class="gtag mid">中年级</span></td><td>线段/角/三角形/长方形分类数，握手问题广泛应用。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">分类用加法、分步用乘法　｜　排列 A(n,m)=n!/(n−m)!　｜　组合 C(n,m)=n!/[m!(n−m)!]　｜　容斥：A+B−AB</div>
+        <div class="note">判断"分类还是分步"：方法之间能不能独立完成整件事——能，分类（加）；缺一不可，分步（乘）。</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+          方法步骤：计数
+        </div>
+        <ul class="steps">
+          <li><b>审事</b>：明确要数的是什么、分几类或几步。</li>
+          <li><b>定加乘</b>：能独立完成用加法，连续完成用乘法。</li>
+          <li><b>看顺序</b>：与顺序有关用排列、无关用组合。</li>
+          <li><b>去重</b>：有重叠用容斥；求"至少"想抽屉。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">①（中年级）2 件上衣、3 条裤子，有几种穿法？②（高年级）5 人两两握手，共握几次？</div>
+          <div class="a"><b>解：</b>① 分步：2×3=6 种。<br>② 组合 C(5,2)=10 次。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>分类与分步混淆；排列该除 m! 时没除；容斥把重复部分加了两次。</div>
+    </div>
+  </div>
+</section>
+<!-- ===== 专题七 数字谜与数阵 ===== -->
+<section class="block wrap" id="t7">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">T7</div>
+      <h2>数字谜 · 数阵与幻方</h2>
+      <span class="pages">算式 · 进位分析</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本专题考什么</div>
+        <p>在算式中填数字、填符号，或把数填入图形使和相等。核心：<b>从个位、从进位（借位）找突破口</b>，结合数论；幻方有罗伯法、杨辉法等。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:23%"><col style="width:13%"><col style="width:64%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 特征</th></tr></thead>
+          <tbody>
+            <tr><td>填充型算式谜</td><td><span class="gtag low">入门</span></td><td>从个位入手，满十进一、退一当十，逐位推。</td></tr>
+            <tr><td>替代型（字母/图形）</td><td><span class="gtag mid">中年级</span></td><td>相同符号代表相同数字，先确定出现最多、信息最足的。</td></tr>
+            <tr><td>填运算符号</td><td><span class="gtag low">入门</span></td><td>尝试 +−×÷，先猜后验，必要时添括号。</td></tr>
+            <tr><td>横式变竖式 / 结合数论</td><td><span class="gtag high">高年级</span></td><td>列竖式分析进位，结合整除、质因数。</td></tr>
+            <tr><td>数阵（相等和值）</td><td><span class="gtag mid">中年级</span></td><td>设重叠数，利用"总和关系"求重叠数与每组和。</td></tr>
+            <tr><td>数列分组</td><td><span class="gtag high">高年级</span></td><td>知行列求某数、知某数求行列，找排列规律。</td></tr>
+            <tr><td>奇阶幻方</td><td><span class="gtag high">高年级</span></td><td>罗伯法（1居上行正中央，依次斜填）、杨辉法。</td></tr>
+            <tr><td>偶阶幻方 / 二进制</td><td><span class="gtag high">高年级</span></td><td>双偶阶对称互换，单偶阶同心方阵；进制按位值转换。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>
+          方法步骤：解数字谜
+        </div>
+        <ul class="steps">
+          <li><b>找突破口</b>：个位、首位、进位处往往信息最多。</li>
+          <li><b>分析进位</b>：判断每一位是否满十进一。</li>
+          <li><b>逐步定数</b>：一位推出一位，注意0不能在首位。</li>
+          <li><b>代回验证</b>：把数字填回原式，检验等式成立。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">①（中年级）两个两位数相加得 191（如 94+97），为什么十位都得是 9？②（入门）填空 3 ○ 3 ○ 3 = 12。</div>
+          <div class="a"><b>解：</b>① 个位相加要进位，十位 9+9+进位1=19，故十位都是 9。<br>② 3×3+3=12，填 ×、+。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 专题八 组合与逻辑 ===== -->
+<section class="block wrap" id="t8">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">T8</div>
+      <h2>组合数学 · 逻辑推理</h2>
+      <span class="pages">杂题 · 智巧趣题</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本专题考什么</div>
+        <p>包含找规律、逻辑推理、一笔画、火柴棒、智巧趣题等，考查<b>突破思维定势、有序推理和统筹优化</b>，是迎春杯"创新、人文智趣"的集中体现。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:23%"><col style="width:13%"><col style="width:64%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法</th></tr></thead>
+          <tbody>
+            <tr><td>周期规律</td><td><span class="gtag low">入门</span></td><td>找重复单元，用除法看余数定位置。</td></tr>
+            <tr><td>数列规律（等差/等比/斐波那契）</td><td><span class="gtag mid">中年级</span></td><td>看差、倍、相邻和，必要时隔一位分两列。</td></tr>
+            <tr><td>策略 / 最值（抢报30、烙饼、统筹）</td><td><span class="gtag high">高年级</span></td><td>逆向找必胜点；统筹安排使等待最少；比较方案取最优。</td></tr>
+            <tr><td>逻辑推理（比较/真假话）</td><td><span class="gtag low">入门</span></td><td>找确定条件，用排除法、等量代换逐步排。</td></tr>
+            <tr><td>列表法 / 对阵图</td><td><span class="gtag high">高年级</span></td><td>用表格整理条件；体育比赛算场次、积分（含单循环常识）。</td></tr>
+            <tr><td>一笔画</td><td><span class="gtag mid">中年级</span></td><td>奇点个数为 0 或 2 可一笔画；两个奇点从奇点进、另一奇点出。</td></tr>
+            <tr><td>多笔画</td><td><span class="gtag high">高年级</span></td><td>笔画数 = 奇点数 ÷ 2。</td></tr>
+            <tr><td>火柴棒 / 智力问题</td><td><span class="gtag low">入门</span></td><td>动手尝试移动火柴变图形或算式；突破思维定势，注意特殊情境。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">一笔画：奇点数为 0 或 2；笔画数 = 奇点数 ÷ 2（奇点：连出奇数条线的点）</div>
+        <div class="note">对阵：单循环每两队赛一场，比赛场数 = 队数 ×(队数−1)÷2。</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg>
+          方法步骤：逻辑推理
+        </div>
+        <ul class="steps">
+          <li><b>列条件</b>：把已知条件整理成表或图。</li>
+          <li><b>找确定</b>：从最确定、信息最多的条件入手。</li>
+          <li><b>排除代换</b>：排除不可能，等量代换，逐步逼近。</li>
+          <li><b>验证</b>：结论满足所有条件，无矛盾。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">①（中年级）4 个队进行单循环比赛，共赛几场？②（中年级）一个图形有 4 个奇点，需要几笔？</div>
+          <div class="a"><b>解：</b>① 4×3÷2=6 场。<br>② 笔画数=4÷2=2 笔。</div>
+        </div>
+      </div>
+      <div class="tip"><b>智巧趣题：</b>遇到"想不通"的题，换个角度、动手画一画或摆一摆，常常答案就在眼前。</div>
+    </div>
+  </div>
+</section>
+<!-- ===== 分年级路线 ===== -->
+<section class="block" id="route">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">GRADE ROADMAP</span>
+      <h2>1–6 年级学习路线：每年重点学什么</h2>
+      <p>奥数是螺旋上升的，各年级衔接校内、循序渐进。低年级重兴趣和计算，高年级重方法体系和综合。</p>
+    </div>
+    <div class="route">
+      <div class="rc">
+        <div class="yr">一年级</div>
+        <div class="stg">兴趣启蒙</div>
+        <ul>
+          <li>20/100 以内加减</li>
+          <li>认图形、分类</li>
+          <li>简单找规律</li>
+          <li>数感与口算</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">二年级</div>
+        <div class="stg">思维入门</div>
+        <ul>
+          <li>表内乘除法</li>
+          <li>数图形、间隔</li>
+          <li>移多补少、年龄</li>
+          <li>找规律、智巧趣题</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">三年级</div>
+        <div class="stg">方法成型</div>
+        <ul>
+          <li>四则巧算、运算定律</li>
+          <li>周长、面积</li>
+          <li>和差倍、鸡兔同笼</li>
+          <li>加乘原理、初步行程</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">四年级</div>
+        <div class="stg">专题拓展</div>
+        <ul>
+          <li>小数、整除初步</li>
+          <li>相遇、追及</li>
+          <li>盈亏、平均数</li>
+          <li>枚举、计数</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">五年级</div>
+        <div class="stg">体系建立</div>
+        <ul>
+          <li>分数、质数合数</li>
+          <li>约数倍数、几何模型</li>
+          <li>分数应用题</li>
+          <li>行程综合、排列组合</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">六年级</div>
+        <div class="stg">综合冲刺</div>
+        <ul>
+          <li>百分数、圆、立体</li>
+          <li>工程、浓度</li>
+          <li>容斥、抽屉</li>
+          <li>真题综合、小升初</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 方法速查表 ===== -->
+<section class="block" id="methods">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">CHEAT SHEET</span>
+      <h2>核心解题方法速查表</h2>
+      <p>做题或考前快速查阅，按专题找到关键公式与方法。</p>
+    </div>
+    <div class="card" style="overflow:hidden">
+      <div class="tbl-wrap" style="margin-top:0;border:none;border-radius:0">
+        <table class="tbl">
+          <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+          <thead><tr><th>专题</th><th>关键方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td><b>计算</b></td><td>凑整、带符号搬家、提取公因数、基准数；等差求和；裂项；1+…+n=n(n+1)/2。</td></tr>
+            <tr><td><b>数论</b></td><td>2/5 看末位、3/9 看数字和；质数合数；分解质因数；约数个数=(指数+1)之积；同余。</td></tr>
+            <tr><td><b>几何</b></td><td>周长/面积公式；三角形=底×高÷2；割补、等积变形；圆=πr²；立体体积、表面积。</td></tr>
+            <tr><td><b>应用题</b></td><td>和差倍公式；鸡兔同笼用假设；平均数；工程把总量看作1；分数应用题找单位"1"。</td></tr>
+            <tr><td><b>行程</b></td><td>路程=速度×时间；相遇用速度和、追及用速度差；顺水=船速+水速；火车过桥加车长。</td></tr>
+            <tr><td><b>计数</b></td><td>分类用加法、分步用乘法；排列看顺序、组合不看；容斥 A+B−AB；抽屉求"至少"。</td></tr>
+            <tr><td><b>数字谜</b></td><td>从个位、进位入手；相同符号同数字；数阵算重叠数；幻方罗伯法。</td></tr>
+            <tr><td><b>组合逻辑</b></td><td>一笔画看奇点（0或2）；笔画数=奇点数÷2；列表、排除、对阵；单循环=n(n−1)/2。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 备考建议 ===== -->
+<section class="block" id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">STUDY TIPS</span>
+      <h2>系统备考的四点建议</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card" style="padding:24px 26px">
+        <h3 style="font-size:17px;color:var(--green-d);margin-bottom:14px">怎么学</h3>
+        <ul style="list-style:none">
+          <li style="padding:7px 0 7px 30px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:7px;color:var(--green);font-weight:900">1</span><b>计算打底：</b>每天坚持口算、巧算，保证速度与准确。</li>
+          <li style="padding:7px 0 7px 30px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:7px;color:var(--green);font-weight:900">2</span><b>专题突破：</b>按八大专题逐个学，理解方法、配例题。</li>
+          <li style="padding:7px 0 7px 30px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:7px;color:var(--green);font-weight:900">3</span><b>真题演练：</b>做对应年级真题，限时训练、熟悉题型。</li>
+          <li style="padding:7px 0 7px 30px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:7px;color:var(--green);font-weight:900">4</span><b>错题复盘：</b>记录错因、定期回顾，举一反三。</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card" style="padding:24px 26px;margin-bottom:16px">
+          <h3 style="font-size:17px;color:var(--green-d);margin-bottom:12px">做题好习惯</h3>
+          <div style="font-size:14px;color:var(--ink-2)">
+            读懂题再动手，圈关键词；多画图、多摆一摆；有序思考、分类列举；做完检查、答案放回验证。遇到难题不慌，换个角度，把大题拆成小步。
+          </div>
+        </div>
+        <div class="tip" style="margin-top:0">
+          <b>给家长的话：</b>奥数之路很长，低年级最珍贵的是兴趣和信心。少比较、多鼓励，用提问引导孩子自己想通。每一步思考都值得肯定，慢慢来，坚持比冲刺更重要。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--green-d);color:rgba(255,255,255,.85);padding:34px 0;margin-top:50px">
+  <div class="wrap" style="text-align:center">
+    <div style="font-weight:900;color:#fff;font-size:17px;margin-bottom:8px">迎春杯 · 小学全阶段奥数知识点与解题方法全解</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.7)">体系完整、循序渐进；保持热爱，每一步都算数。</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script>
+(function(){
+  var chart = echarts.init(document.getElementById('chartWeight'));
+  var data = [
+    {name:'几何', v:17},
+    {name:'计算', v:16},
+    {name:'数论', v:16},
+    {name:'应用题', v:16},
+    {name:'行程', v:12},
+    {name:'计数', v:10},
+    {name:'数字谜', v:7},
+    {name:'组合逻辑', v:6}
+  ];
+  var palette = ['#7A5BA0','#3BA47E','#4A7FB5','#EE8445','#2E8B8B','#D9A94E','#C7544A','#5E9E8C'];
+  chart.setOption({
+    tooltip:{trigger:'item',formatter:'{b}：{c}%（{d}%）'},
+    legend:{type:'scroll',orient:'horizontal',bottom:0,textStyle:{color:'#4C5E55',fontSize:12}},
+    series:[{
+      type:'pie',radius:['42%','68%'],center:['50%','46%'],
+      avoidLabelOverlap:true,
+      itemStyle:{borderColor:'#fff',borderWidth:2,borderRadius:6},
+      label:{show:true,formatter:'{b}\n{c}%',color:'#22302A',fontSize:12,fontWeight:600},
+      labelLine:{length:10,length2:12},
+      data:data.map(function(d,i){return {name:d.name,value:d.v,itemStyle:{color:palette[i]}};})
+    }]
+  });
+  window.addEventListener('resize',function(){chart.resize();});
+})();
+</script>
+</body>
+</html>
+<!-- （注：内容由AI生成） -->

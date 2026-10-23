@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMC8 · 整个小学知识点与解题方法全解</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232D5F9E'/><text x='50' y='70' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>A</text></svg>">
+<style>
+:root{
+  /* 主色（沿用系列变量名，赋值为AMC国际蓝） */
+  --green:#2D5F9E; --green-d:#1E4476; --green-l:#4A7FB5; --green-bg:#EAF1F9;
+  --red:#C7544A; --red-bg:#FBECEA;
+  --orange:#EE8445; --orange-d:#D96B2B; --orange-bg:#FDF0E6;
+  --green-mint:#3BA47E; --green-mint-bg:#EAF5EF;
+  --purple:#7A5BA0; --purple-bg:#F1ECF7;
+  --teal:#2E8B8B; --teal-bg:#E6F3F3;
+  --ink:#20282F; --ink-2:#4A555E; --ink-3:#79848D;
+  --paper:#F5F8FC; --card:#FFFFFF; --line:#E3EAF1;
+  --yellow-bg:#FCF6E3;
+  --shadow:0 2px 10px rgba(30,68,118,.08); --shadow-h:0 8px 24px rgba(30,68,118,.14);
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans SC",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+::selection{background:var(--green-l);color:#fff}
+a{color:var(--green);text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{line-height:1.3;font-weight:700}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1120px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:8px}
+.nav-logo{display:flex;align-items:center;gap:9px;font-weight:900;color:var(--green-d);font-size:17px;white-space:nowrap;margin-right:10px}
+.nav-logo .mk{width:32px;height:32px;background:var(--green);border-radius:9px;display:grid;place-items:center;color:#fff;font-size:16px}
+.nav-links{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:7px 11px;border-radius:8px;font-size:14px;color:var(--ink-2);white-space:nowrap;font-weight:500}
+.nav-links a:hover{background:var(--green-bg);color:var(--green-d)}
+
+.hero{background:linear-gradient(135deg,#1E4476 0%,#2D5F9E 55%,#3F73B5 100%);color:#fff;padding:64px 0 78px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 15%,rgba(255,255,255,.14) 0,transparent 42%),radial-gradient(circle at 8% 92%,rgba(255,255,255,.08) 0,transparent 40%)}
+.hero-in{position:relative;max-width:1120px;margin:0 auto;padding:0 24px}
+.hero .tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:6px 15px;border-radius:30px;font-size:13.5px;font-weight:500;margin-bottom:22px}
+.hero h1{font-size:clamp(27px,4.3vw,42px);font-weight:900;margin-bottom:15px}
+.hero h1 .hl{color:#BFD6F5}
+.hero p.sub{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.92);max-width:800px;font-weight:300}
+.hero-badges{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
+.hb{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:11px 17px;font-size:14px;font-weight:500}
+.hb b{font-size:16px}
+
+section.block{padding-block:60px 8px}
+.sec-head{margin-bottom:30px;max-width:860px}
+.sec-kicker{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:10px}
+.sec-kicker::before{content:"";width:22px;height:3px;background:var(--green);border-radius:2px}
+.sec-head h2{font-size:clamp(23px,2.9vw,30px);color:var(--green-d);margin-bottom:9px}
+.sec-head p{color:var(--ink-2);font-size:15.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.role-card{padding:25px;position:relative}
+.role-card .rt{display:inline-flex;align-items:center;gap:8px;font-size:16.5px;font-weight:900;padding:6px 14px;border-radius:9px;margin-bottom:14px}
+.role-card .rt .ic{width:22px;height:22px}
+.role-card.c1 .rt{background:var(--green-bg);color:var(--green-d)}
+.role-card.c2 .rt{background:var(--orange-bg);color:var(--orange-d)}
+.role-card.c3 .rt{background:var(--green-mint-bg);color:#23785B}
+.role-card .desc{font-size:14px;color:var(--ink-2);margin-bottom:13px}
+.role-card .lbl{font-size:12.5px;font-weight:700;color:var(--ink-3);letter-spacing:1px;margin-bottom:6px}
+.role-card ul{list-style:none}
+.role-card ul li{position:relative;padding:5px 0 5px 20px;font-size:13.5px;color:var(--ink)}
+.role-card ul li::before{content:"";position:absolute;left:3px;top:13px;width:7px;height:7px;border-radius:50%}
+.role-card.c1 ul li::before{background:var(--green-l)}
+.role-card.c2 ul li::before{background:var(--orange)}
+.role-card.c3 ul li::before{background:var(--green-mint)}
+
+/* 奖项卡 */
+.award{padding:22px;text-align:center}
+.award .at{font-size:16px;font-weight:900;margin-bottom:3px}
+.award .pct{font-size:30px;font-weight:900;line-height:1.1;margin:6px 0}
+.award .ameta{font-size:13px;color:var(--ink-2)}
+.award.a1{border-top:4px solid #D9A94E}
+.award.a2{border-top:4px solid var(--green-mint)}
+.award.a3{border-top:4px solid var(--green-l)}
+.award.a1 .at{color:#9A7520}
+.award.a2 .at{color:#23785B}
+.award.a3 .at{color:var(--green-d)}
+.award .pct{color:var(--green-d)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{background:var(--green);color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:13px}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:nth-child(even) td{background:#F6F9FC}
+.tbl-wrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:14px}
+.tbl .c{text-align:center}
+
+.gtag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}
+.gtag.low{background:var(--green-mint-bg);color:#23785B}
+.gtag.mid{background:var(--orange-bg);color:var(--orange-d)}
+.gtag.high{background:var(--purple-bg);color:var(--purple)}
+
+.unit{margin-bottom:26px;scroll-margin-top:78px}
+.unit-head{display:flex;align-items:center;gap:15px;background:linear-gradient(120deg,var(--green-d),var(--green));color:#fff;border-radius:var(--r) var(--r) 0 0;padding:20px 26px}
+.unit-head .badge{flex-shrink:0;width:50px;height:50px;background:rgba(255,255,255,.16);border-radius:12px;display:grid;place-items:center;font-size:17px;font-weight:900}
+.unit-head h2{font-size:20px}
+.unit-head .pages{margin-left:auto;font-size:13px;background:rgba(255,255,255,.15);padding:5px 13px;border-radius:20px;white-space:nowrap}
+.unit-body{background:var(--card);border:1px solid var(--line);border-top:none;border-radius:0 0 var(--r) var(--r);padding:26px;box-shadow:var(--shadow)}
+
+.goals{background:var(--green-bg);border:1px solid #C7D9EE;border-radius:11px;padding:13px 17px;margin-bottom:6px}
+.goals .gt{font-size:13px;font-weight:900;color:var(--green-d);margin-bottom:5px}
+.goals p{font-size:13.5px;color:#34507A}
+
+.method-box{background:var(--yellow-bg);border:1px solid #EEDFAE;border-radius:11px;padding:15px 18px;margin-top:12px}
+.method-box .mt{font-size:13.5px;font-weight:900;color:#8A5A17;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.steps{list-style:none;counter-reset:st}
+.steps li{counter-increment:st;position:relative;padding:6px 0 6px 34px;font-size:13.5px;color:#5C4A24;border-bottom:1px dashed #E6D8AC;line-height:1.65}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(st);position:absolute;left:2px;top:7px;width:23px;height:23px;background:#D9A94E;color:#fff;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700}
+.steps li b{color:#8A5A17}
+
+.formula{background:var(--green-bg);border:1px solid #C7D9EE;border-radius:11px;padding:13px 17px;margin-top:12px}
+.formula .f{font-size:14.5px;font-weight:700;color:var(--green-d);text-align:center;letter-spacing:.3px}
+.formula .note{font-size:12.5px;color:#4A6B94;margin-top:5px;text-align:center}
+
+.example{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin-top:12px}
+.example .exh{background:var(--green-bg);color:var(--green);font-size:13px;font-weight:700;padding:8px 15px;display:flex;align-items:center;gap:7px}
+.example .exb{padding:13px 16px;font-size:14px}
+.example .exb .q{color:var(--ink);margin-bottom:8px}
+.example .exb .a{color:var(--green-d);font-size:13.5px;background:var(--green-bg);border-radius:8px;padding:9px 12px}
+.example .exb .a b{color:var(--green)}
+
+.tip{background:var(--green-bg);border:1px solid #C7D9EE;border-radius:11px;padding:13px 16px;margin-top:12px;font-size:13.5px;color:#2C5378}
+.tip b{color:var(--green-d)}
+.warn{background:var(--red-bg);border:1px solid #EBC9C5;border-radius:11px;padding:13px 16px;margin-top:12px;font-size:13.5px;color:#94403A}
+.warn b{color:var(--red)}
+
+.chart-box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:20px 22px;margin-top:14px}
+.chart-box .ct{font-size:14px;font-weight:900;color:var(--green-d);margin-bottom:2px}
+.chart-box .cn{font-size:12.5px;color:var(--ink-3);margin-bottom:8px}
+.chart{width:100%;height:380px}
+
+.route{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:14px}
+.route .rc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 13px;position:relative}
+.route .rc .yr{font-size:14px;font-weight:900;color:var(--green-d);margin-bottom:2px}
+.route .rc .stg{font-size:11.5px;color:var(--ink-3);margin-bottom:8px}
+.route .rc ul{list-style:none}
+.route .rc ul li{font-size:12px;color:var(--ink-2);padding:2px 0 2px 11px;position:relative;line-height:1.5}
+.route .rc ul li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--green-l)}
+
+@media (max-width:1000px){.route{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:920px){
+  .grid-3{grid-template-columns:1fr 1fr}
+  .grid-2{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  section.block{padding-block:44px 6px}
+  .nav-in{padding:0 13px;height:54px}
+  .nav-logo{font-size:15px;margin-right:6px}
+  .nav-logo .mk{width:29px;height:29px;font-size:15px}
+  .nav-links a{padding:6px 10px;font-size:13.5px}
+  .hero{padding:46px 0 58px}
+  .grid-3,.grid-2{grid-template-columns:1fr;gap:16px}
+  .route{grid-template-columns:1fr 1fr;gap:11px}
+  .chart{height:440px}
+  .unit-head{flex-wrap:wrap;gap:11px;padding:17px 19px}
+  .unit-head .badge{width:44px;height:44px;font-size:15px}
+  .unit-head h2{font-size:17px;flex-basis:calc(100% - 60px)}
+  .unit-head .pages{margin-left:0;font-size:12.5px}
+  .unit-body{padding:19px 16px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-in">
+    <div class="nav-logo"><span class="mk">A</span>AMC8 · 全小学</div>
+    <div class="nav-links">
+      <a href="#overview">竞赛总览</a>
+      <a href="#m1">数与运算</a>
+      <a href="#m2">代数</a>
+      <a href="#m3">几何</a>
+      <a href="#m4">数论</a>
+      <a href="#m5">计数概率</a>
+      <a href="#m6">应用逻辑</a>
+      <a href="#route">年级路线</a>
+      <a href="#methods">速查表</a>
+      <a href="#strategy">应试策略</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <span class="tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      全球经典 · 面向 8 年级及以下（小学可提前准备）
+    </span>
+    <h1>AMC8 美国数学竞赛<br><span class="hl">小学全阶段知识点与解题方法全解</span></h1>
+    <p class="sub">AMC8 由美国数学协会（MAA）主办，是全球规模最大、最具影响力的中小学数学竞赛之一，也是 AMC10/12、AIME 的入门起点。本手册按六大模块，把小学阶段需要掌握的知识点、英文术语、解题方法与例题系统整理，帮孩子打好基础、与国际接轨。</p>
+    <div class="hero-badges">
+      <span class="hb"><b>25 题</b>　40 分钟</span>
+      <span class="hb"><b>选择题</b>　错答不扣分</span>
+      <span class="hb"><b>六大模块</b>　全小学覆盖</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 竞赛总览 ===== -->
+<section class="block" id="overview">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">ABOUT AMC8</span>
+      <h2>先了解：AMC8 是什么、怎么考</h2>
+      <p>题目强调思维与解题速度，不允许使用计算器；中国考区可选中英双语试卷。小学阶段提前准备，重在夯实计算、几何和数论基础。</p>
+    </div>
+    <div class="grid-3">
+      <div class="card role-card c1">
+        <span class="rt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v4h1"/></svg>它是什么</span>
+        <div class="desc">美国数学协会（MAA）主办，面向 8 年级及以下、14.5 岁以下学生，是 AMC 系列的入门级竞赛，全球认可。</div>
+        <div class="lbl">特点</div>
+        <ul>
+          <li>全球统考、含金量高</li>
+          <li>重思维、重速度、重应用</li>
+          <li>是 AMC10/12、AIME 的起点</li>
+          <li>中英双语，可线上/线下</li>
+        </ul>
+      </div>
+      <div class="card role-card c2">
+        <span class="rt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>怎么考</span>
+        <div class="desc">25 道选择题（五选一），40 分钟，每题 1 分；答对得 1 分，不答或答错不扣分，满分 25；不可使用计算器。</div>
+        <div class="lbl">规则</div>
+        <ul>
+          <li>25 题、40 分钟</li>
+          <li>五选一，可用排除法</li>
+          <li>错答不扣分，可"猜"</li>
+          <li>平均每题约 1.5 分钟</li>
+        </ul>
+      </div>
+      <div class="card role-card c3">
+        <span class="rt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 15l3 3-3 3"/></svg>考什么</span>
+        <div class="desc">涵盖小学到初中预备的六大模块：数与运算、代数、几何、数论、计数与概率、应用与逻辑，后段题会涉及初步代数和坐标。</div>
+        <div class="lbl">六大模块</div>
+        <ul>
+          <li>数与运算、代数初步</li>
+          <li>几何、数论</li>
+          <li>计数与概率</li>
+          <li>应用题与逻辑</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:40px">
+      <span class="sec-kicker">AWARDS</span>
+      <h2>奖项分数线参考</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card award a1">
+        <div class="at">DHR · 全球卓越奖</div>
+        <div class="pct">21 分</div>
+        <div class="ameta">约前 1%（最多错 4 题）</div>
+      </div>
+      <div class="card award a2">
+        <div class="at">HR · 全球优秀奖</div>
+        <div class="pct">17–18 分</div>
+        <div class="ameta">约前 5%（错 7–8 题）</div>
+      </div>
+      <div class="card award a3">
+        <div class="at">AR · 小学成就奖</div>
+        <div class="pct">15 分</div>
+        <div class="ameta">6 年级及以下专属鼓励</div>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <div class="ct">六大模块分值占比（经验示意）</div>
+      <div class="cn">根据近年 AMC8 命题整理，非官方比例，每年略有浮动，仅供安排复习优先级参考。</div>
+      <div class="chart" id="chartWeight"></div>
+    </div>
+  </div>
+</section>
+<!-- ===== 模块一 数与运算 ===== -->
+<section class="block wrap" id="m1">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M1</div>
+      <h2>数与运算 Arithmetic</h2>
+      <span class="pages">分数 · 小数 · 百分数 · 比例</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本模块考什么</div>
+        <p>AMC8 分值最大的部分之一，要求整数、分数、小数、百分数运算熟练，并能在不同形式间互化、用<b>比与比例</b>解题。是后段一切题目的基础。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:24%"><col style="width:13%"><col style="width:63%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>整数四则 / 巧算</td><td><span class="gtag low">低</span></td><td>运算顺序、运算定律、凑整、提取公因数。</td></tr>
+            <tr><td>分数的意义与化简</td><td><span class="gtag mid">中</span></td><td>分数 fraction；约分（分子分母同除公因数）、假分数↔带分数。</td></tr>
+            <tr><td>分数加减</td><td><span class="gtag mid">中</span></td><td>先通分（分母相同），再加减，最后化简。</td></tr>
+            <tr><td>分数乘除</td><td><span class="gtag high">高</span></td><td>乘法分子分母分别乘；除法变乘倒数（reciprocal）。</td></tr>
+            <tr><td>小数及运算</td><td><span class="gtag mid">中</span></td><td>小数 decimal；对齐小数点；小数↔分数互化。</td></tr>
+            <tr><td>百分数</td><td><span class="gtag high">高</span></td><td>百分数 percent；a%=a/100；百分数↔小数↔分数互化。</td></tr>
+            <tr><td>求一个数的百分之几</td><td><span class="gtag high">高</span></td><td>部分 = 整体 × 百分数；折扣、涨跌、浓度问题。</td></tr>
+            <tr><td>比与比值</td><td><span class="gtag high">高</span></td><td>比 ratio；化简比、求比值（前项÷后项）。</td></tr>
+            <tr><td>比例与正反比</td><td><span class="gtag high">高</span></td><td>比例 proportion；内项积=外项积；商一定成正比、积一定成反比。</td></tr>
+            <tr><td>平均分 / 单位换算</td><td><span class="gtag low">低</span></td><td>平均分用除法；长度、重量、时间单位换算。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">分数除法：除以一个数 = 乘它的倒数　｜　a% = a/100　｜　比例 a:b = c:d 时，ad = bc</div>
+        <div class="note">分数、小数、百分数互化：1/2 = 0.5 = 50%；1/4 = 0.25 = 25%。</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M4 17l6-6 4 4 8-8"/></svg>
+          方法步骤：分数/比例运算
+        </div>
+        <ul class="steps">
+          <li><b>统一形式</b>：分数加减先通分；乘除先约分。</li>
+          <li><b>定基准</b>：百分数、比例题先找"整体 / 单位 1"。</li>
+          <li><b>列式计算</b>：求部分用乘、求整体用除。</li>
+          <li><b>化简检验</b>：结果约成最简，放回题意核对。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 一件 80 元的商品打八折，现价多少？② 计算 1/2 + 1/3。</div>
+          <div class="a"><b>解：</b>① 80×80%=64 元。<br>② 通分：3/6+2/6=5/6。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 模块二 代数初步 ===== -->
+<section class="block wrap" id="m2">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M2</div>
+      <h2>代数初步 Algebra</h2>
+      <span class="pages">表达式 · 方程 · 数列</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本模块考什么</div>
+        <p>用字母表示数、写表达式，会解一元一次方程和简单不等式，认识等差数列，会处理"<b>定义新运算</b>"。AMC8 后段题常以此为工具。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:24%"><col style="width:13%"><col style="width:63%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>用字母表示数</td><td><span class="gtag mid">中</span></td><td>代数式 expression；字母参与运算，简写规则（如 3x、ab）。</td></tr>
+            <tr><td>列代数式 / 求值</td><td><span class="gtag mid">中</span></td><td>把文字翻译成式子；代入数值按顺序计算。</td></tr>
+            <tr><td>等式的性质</td><td><span class="gtag mid">中</span></td><td>两边同时加减、同乘除（非零）仍相等。</td></tr>
+            <tr><td>一元一次方程</td><td><span class="gtag high">高</span></td><td>移项、合并、系数化 1；方程 equation。</td></tr>
+            <tr><td>列方程解应用题</td><td><span class="gtag high">高</span></td><td>设未知数，找等量关系，列方程求解。</td></tr>
+            <tr><td>不等式</td><td><span class="gtag high">高</span></td><td>不等式 inequality；解的方向，乘除负数变号。</td></tr>
+            <tr><td>等差数列</td><td><span class="gtag mid">中</span></td><td>第 n 项=首项+(n−1)×公差；和=(首+末)×项数÷2。</td></tr>
+            <tr><td>等比 / 递推数列</td><td><span class="gtag high">高</span></td><td>后项=前项×公比；斐波那契等递推。</td></tr>
+            <tr><td>定义新运算</td><td><span class="gtag high">高</span></td><td>严格按题给规则代入，先括号，注意是否满足交换/结合律。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">第 n 项 = 首项 + (n−1)d　｜　等差数列和 =（首+末）× n ÷ 2　｜　解方程：移项变号、合并、系数化 1</div>
+        <div class="note">例：2x+5=13，2x=8，x=4。</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+          方法步骤：解方程
+        </div>
+        <ul class="steps">
+          <li><b>设元</b>：把未知量设为 x（必要时用关系表示其他量）。</li>
+          <li><b>列方程</b>：找等量关系。</li>
+          <li><b>解方程</b>：移项、合并、系数化 1。</li>
+          <li><b>检验</b>：代回原题，看是否成立。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 解方程 3x−6=15。② 等差数列 2,5,8,11，第 10 项是多少？</div>
+          <div class="a"><b>解：</b>① 3x=21，x=7。<br>② 第10项=2+9×3=29。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>移项不变号；定义新运算用自己的习惯去算；数列表 n 时写成 (n)×d 漏了减 1。</div>
+    </div>
+  </div>
+</section>
+<!-- ===== 模块三 几何 ===== -->
+<section class="block wrap" id="m3">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M3</div>
+      <h2>几何 Geometry</h2>
+      <span class="pages">周长 · 面积 · 立体 · 坐标</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本模块考什么</div>
+        <p>约占 1/4，考查平面图形的周长面积、勾股定理、圆、坐标，以及立体图形的表面积、体积和空间想象。方法：<b>公式法、割补法、等积变形、画图</b>。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:24%"><col style="width:13%"><col style="width:63%"></colgroup>
+          <thead><tr><th>平面几何考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>角 / 基本图形</td><td><span class="gtag low">低</span></td><td>直角、锐角、钝角；三角形内角和 180°；平行、垂直。</td></tr>
+            <tr><td>周长</td><td><span class="gtag mid">中</span></td><td>长方形=(长+宽)×2；正方形=边长×4；不规则图形平移。</td></tr>
+            <tr><td>长方形 / 正方形面积</td><td><span class="gtag mid">中</span></td><td>长×宽；边长×边长。</td></tr>
+            <tr><td>三角形 / 平行四边形 / 梯形面积</td><td><span class="gtag high">高</span></td><td>三角形=底×高÷2；平行四边形=底×高；梯形=(上底+下底)×高÷2。</td></tr>
+            <tr><td>三角形性质</td><td><span class="gtag high">高</span></td><td>两边之和大于第三边；等腰、等边三角形性质。</td></tr>
+            <tr><td>勾股定理</td><td><span class="gtag high">高</span></td><td>直角三角形 a²+b²=c²；常见勾股数 3-4-5、5-12-13。</td></tr>
+            <tr><td>相似 / 面积比</td><td><span class="gtag high">高</span></td><td>对应边成比例；面积比=边长比的平方。</td></tr>
+            <tr><td>圆 / 扇形</td><td><span class="gtag high">高</span></td><td>圆周长=2πr，面积=πr²；扇形按圆心角比例。</td></tr>
+            <tr><td>组合图形 / 格点</td><td><span class="gtag high">高</span></td><td>割补、等积变形；数方格求面积。</td></tr>
+            <tr><td>坐标 / 图形变换</td><td><span class="gtag high">高</span></td><td>坐标 coordinate；读点、平移、对称；平移旋转对称。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:24%"><col style="width:13%"><col style="width:63%"></colgroup>
+          <thead><tr><th>立体几何考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>认识立体 / 展开图</td><td><span class="gtag mid">中</span></td><td>长方体、正方体、圆柱、球；展开图与空间想象。</td></tr>
+            <tr><td>数方块 / 三视图</td><td><span class="gtag mid">中</span></td><td>分层数（含看不见的）；由三视图还原。</td></tr>
+            <tr><td>表面积</td><td><span class="gtag high">高</span></td><td>长方体=2(长×宽+长×高+宽×高)；正方体=6×边长²。</td></tr>
+            <tr><td>体积</td><td><span class="gtag high">高</span></td><td>长方体=长×宽×高；圆柱=底面积×高；等积变形。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">三角形面积=底×高÷2　｜　勾股 a²+b²=c²　｜　圆面积=πr²　｜　长方体体积=长×宽×高</div>
+        <div class="note">π 在选择题中常取 3.14 或 22/7（题目会说明）。</div>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 直角三角形两直角边 3、4，斜边多长？② 半径 5 的圆面积（π 取 3.14）。</div>
+          <div class="a"><b>解：</b>① c²=9+16=25，c=5。<br>② πr²=3.14×25=78.5。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>面积和周长单位混淆；三角形面积忘除以 2；组合图形重复或遗漏。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 模块四 数论 ===== -->
+<section class="block wrap" id="m4">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M4</div>
+      <h2>数论 Number Theory</h2>
+      <span class="pages">质数 · 因数 · 余数</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本模块考什么</div>
+        <p>研究整数性质，是 AMC8 中后段区分高分的关键（课内常常学得少）。核心方法：<b>分解质因数、整除特征、GCD/LCM、余数规律</b>。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:24%"><col style="width:13%"><col style="width:63%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 特征</th></tr></thead>
+          <tbody>
+            <tr><td>奇偶性</td><td><span class="gtag low">低</span></td><td>奇偶加减乘规律；用奇偶性判断结果。</td></tr>
+            <tr><td>整除特征 2/5</td><td><span class="gtag mid">中</span></td><td>看末位（2 看 0,2,4,6,8；5 看 0,5）。</td></tr>
+            <tr><td>整除特征 3/9</td><td><span class="gtag mid">中</span></td><td>看各位数字之和。</td></tr>
+            <tr><td>质数与合数</td><td><span class="gtag high">高</span></td><td>质数 prime 只有 1 和自身；2 是最小的质数、唯一的偶质数。</td></tr>
+            <tr><td>分解质因数</td><td><span class="gtag high">高</span></td><td>质因数 prime factor；短除法分解。</td></tr>
+            <tr><td>因数 / 倍数</td><td><span class="gtag high">高</span></td><td>成对找因数；倍数、因数个数。</td></tr>
+            <tr><td>最大公因数 / 最小公倍数</td><td><span class="gtag high">高</span></td><td>GCD、LCM；短除法；两数之积=GCD×LCM。</td></tr>
+            <tr><td>带余除法 / 同余</td><td><span class="gtag high">高</span></td><td>余数&lt;除数；和差积的余数规律；同余 congruence。</td></tr>
+            <tr><td>完全平方数</td><td><span class="gtag high">高</span></td><td>平方数 square；末位特征；约数个数为奇数。</td></tr>
+            <tr><td>数字 / 数位问题</td><td><span class="gtag mid">中</span></td><td>digit 数字；位值原理；数字求和、倒序。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">两数之积 = GCD × LCM　｜　被除数 = 除数×商 + 余数（余数 &lt; 除数）　｜　质数从 2 起：2,3,5,7,11,13…</div>
+        <div class="note">遇到数论题没思路时，先把数分解质因数，常能找到突破口。</div>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 求 12 和 18 的 GCD 与 LCM。② 100 以内最大的质数是多少？</div>
+          <div class="a"><b>解：</b>① 12=2²×3，18=2×3²，GCD=2×3=6，LCM=2²×3²=36。<br>② 97（98、99、100 都不是质数）。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>把 1 当质数；求 LCM 时只取公因数；余数≥除数。</div>
+    </div>
+  </div>
+</section>
+<!-- ===== 模块五 计数与概率 ===== -->
+<section class="block wrap" id="m5">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M5</div>
+      <h2>计数与概率 Counting &amp; Probability</h2>
+      <span class="pages">排列组合 · 容斥 · 概率 · 统计</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本模块考什么</div>
+        <p>近年题量上升，考查完成一件事有多少种方法、事件发生的可能性，以及读取统计数据。核心：<b>加法（分类）、乘法（分步）、排列组合、容斥、概率</b>。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:24%"><col style="width:13%"><col style="width:63%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 公式</th></tr></thead>
+          <tbody>
+            <tr><td>分类枚举</td><td><span class="gtag low">低</span></td><td>按顺序、按规则列，不重不漏。</td></tr>
+            <tr><td>加法原理</td><td><span class="gtag mid">中</span></td><td>分几类，方法数相加。</td></tr>
+            <tr><td>乘法原理</td><td><span class="gtag mid">中</span></td><td>分几步，每步方法数相乘。</td></tr>
+            <tr><td>排列</td><td><span class="gtag high">高</span></td><td>看顺序：A(n,m)=n!/(n−m)!；如排队、编号。</td></tr>
+            <tr><td>组合</td><td><span class="gtag high">高</span></td><td>不看顺序：C(n,m)=n!/[m!(n−m)!]；如选人、握手。</td></tr>
+            <tr><td>容斥原理</td><td><span class="gtag high">高</span></td><td>两类：A∪B=A+B−A∩B；三类再加减两两和三三相交。</td></tr>
+            <tr><td>抽屉原理</td><td><span class="gtag high">高</span></td><td>求"至少"：把物品放进抽屉，保证数量最少。</td></tr>
+            <tr><td>概率</td><td><span class="gtag high">高</span></td><td>概率=有利情况÷所有等可能情况；介于 0 与 1。</td></tr>
+            <tr><td>统计量</td><td><span class="gtag mid">中</span></td><td>平均数、中位数、众数、极差；平均数=总和÷个数。</td></tr>
+            <tr><td>统计图表</td><td><span class="gtag mid">中</span></td><td>条形、折线、扇形、表格；读数据、做计算。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">排列 A(n,m)=n!/(n−m)!　｜　组合 C(n,m)=n!/[m!(n−m)!]　｜　概率 = 有利 ÷ 总数</div>
+        <div class="note">例：掷骰子掷出偶数的概率 = 3/6 = 1/2。</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+          方法步骤：计数
+        </div>
+        <ul class="steps">
+          <li><b>审事</b>：数什么、分几类或几步。</li>
+          <li><b>定原理</b>：分类用加、分步用乘。</li>
+          <li><b>看顺序</b>：有顺序用排列、无顺序用组合。</li>
+          <li><b>去重</b>：有重叠用容斥。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 从 5 人中选 2 人（不分工），有几种选法？② 掷两枚骰子，点数和为 7 的概率？</div>
+          <div class="a"><b>解：</b>① C(5,2)=10 种。<br>② 和为 7 有 6 种，共 36 种，概率=6/36=1/6。</div>
+        </div>
+      </div>
+      <div class="warn"><b>易错：</b>排列组合混淆；分类与分步混用；容斥时重叠部分没减。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 模块六 应用题与逻辑 ===== -->
+<section class="block wrap" id="m6">
+  <div class="unit">
+    <div class="unit-head">
+      <div class="badge">M6</div>
+      <h2>应用题与逻辑 Word Problems &amp; Logic</h2>
+      <span class="pages">多步应用 · 速率工作 · 逻辑推理</span>
+    </div>
+    <div class="unit-body">
+      <div class="goals">
+        <div class="gt">本模块考什么</div>
+        <p>AMC8 几乎每题都含情境，常需多步。考快速提取条件、把生活问题转化为数学，以及纯逻辑推理。核心：<b>读懂题、画图表、找关系、分步解</b>。</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <colgroup><col style="width:24%"><col style="width:13%"><col style="width:63%"></colgroup>
+          <thead><tr><th>考点</th><th>年级</th><th>方法 · 关系</th></tr></thead>
+          <tbody>
+            <tr><td>多步应用题</td><td><span class="gtag mid">中</span></td><td>拆成小步，理清先求什么、再求什么。</td></tr>
+            <tr><td>和差倍 / 鸡兔同笼</td><td><span class="gtag mid">中</span></td><td>和差倍公式；鸡兔同笼用假设法或方程。</td></tr>
+            <tr><td>年龄问题</td><td><span class="gtag mid">中</span></td><td>年龄差不变；逐年/倍数变化。</td></tr>
+            <tr><td>速率 / 路程</td><td><span class="gtag high">高</span></td><td>distance = speed × time；平均速度=总路程÷总时间。</td></tr>
+            <tr><td>工程问题</td><td><span class="gtag high">高</span></td><td>把总量看作 1；效率相加，合作 1÷效率和。</td></tr>
+            <tr><td>货币 / 折扣 / 利润</td><td><span class="gtag high">高</span></td><td>找零、折扣、税、利润；常用百分数。</td></tr>
+            <tr><td>图表 / 信息读取</td><td><span class="gtag mid">中</span></td><td>读懂表、图、时间表，提取数据再计算。</td></tr>
+            <tr><td>逻辑推理</td><td><span class="gtag high">高</span></td><td>列表、排除、找确定条件；真假话、匹配。</td></tr>
+            <tr><td>日历 / 时钟 / 周期</td><td><span class="gtag mid">中</span></td><td>周期取余；钟表角度；星期推算。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula">
+        <div class="f">路程 = 速度 × 时间　｜　工作时间 = 1 ÷ 效率　｜　年龄差永不变　｜　平均速度 = 总路程 ÷ 总时间</div>
+      </div>
+
+      <div class="method-box">
+        <div class="mt">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A5A17" stroke-width="2.1"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+          方法步骤：应用题
+        </div>
+        <ul class="steps">
+          <li><b>读懂</b>：圈关键词和已知、所求。</li>
+          <li><b>画图/列表</b>：把关系整理清楚。</li>
+          <li><b>列式</b>：选算术或方程，分步求解。</li>
+          <li><b>检验</b>：放回情境看是否合理。</li>
+        </ul>
+      </div>
+
+      <div class="example">
+        <div class="exh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>例题</div>
+        <div class="exb">
+          <div class="q">① 汽车每小时 60 千米，行 3 小时走多远？② 鸡兔同笼，头 8 个、脚 26 只，兔几只？</div>
+          <div class="a"><b>解：</b>① 60×3=180 千米。<br>② 假设全是鸡：8×2=16 脚，差 10 脚，每只兔多 2 脚，兔=10÷2=5 只。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== 分年级路线 ===== -->
+<section class="block" id="route">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">GRADE ROADMAP</span>
+      <h2>1–6 年级准备路线：每年重点学什么</h2>
+      <p>AMC8 虽是 8 年级考，小学可提前 1–2 年系统准备。低年级重计算和兴趣，高年级重方法与英文术语。</p>
+    </div>
+    <div class="route">
+      <div class="rc">
+        <div class="yr">一年级</div>
+        <div class="stg">数感启蒙</div>
+        <ul>
+          <li>20/100 加减</li>
+          <li>认图形、找规律</li>
+          <li>分类、数数</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">二年级</div>
+        <div class="stg">计算入门</div>
+        <ul>
+          <li>表内乘除</li>
+          <li>数图形、间隔</li>
+          <li>简单智巧、规律</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">三年级</div>
+        <div class="stg">方法成型</div>
+        <ul>
+          <li>四则巧算、分数初步</li>
+          <li>周长、面积</li>
+          <li>和差倍、加乘原理</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">四年级</div>
+        <div class="stg">专题拓展</div>
+        <ul>
+          <li>小数、整除、因数</li>
+          <li>相遇追及</li>
+          <li>排列组合、概率初步</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">五年级</div>
+        <div class="stg">体系建立</div>
+        <ul>
+          <li>分数百分数、比例</li>
+          <li>质数合数、方程</li>
+          <li>几何、勾股</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <div class="yr">六年级</div>
+        <div class="stg">冲刺模考</div>
+        <ul>
+          <li>圆、立体、坐标</li>
+          <li>真题限时训练</li>
+          <li>目标 AR / HR</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tip"><b>备考时长参考：</b>小学 3–4 年级约 18 个月（建框架、养兴趣）；5–6 年级约 12 个月（系统掌握全部考点、强化逻辑）；7–8 年级 6–8 个月（补弱、优化应试）。</div>
+  </div>
+</section>
+
+<!-- ===== 方法速查表 ===== -->
+<section class="block" id="methods">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">CHEAT SHEET</span>
+      <h2>核心方法速查表</h2>
+      <p>做题或考前快速查阅，按模块找关键公式、方法与英文术语。</p>
+    </div>
+    <div class="card" style="overflow:hidden">
+      <div class="tbl-wrap" style="margin-top:0;border:none;border-radius:0">
+        <table class="tbl">
+          <colgroup><col style="width:20%"><col style="width:80%"></colgroup>
+          <thead><tr><th>模块</th><th>关键方法 · 公式（英文）</th></tr></thead>
+          <tbody>
+            <tr><td><b>数与运算</b></td><td>分数 fraction、小数 decimal、百分数 percent；a%=a/100；除以分数=乘倒数；比例 ad=bc。</td></tr>
+            <tr><td><b>代数</b></td><td>表达式 expression、方程 equation、不等式 inequality；移项、合并、系数化 1；等差第 n 项=首+(n−1)d。</td></tr>
+            <tr><td><b>几何</b></td><td>三角形=底×高÷2；勾股 a²+b²=c²；圆周长 2πr、面积 πr²；长方体体积=长×宽×高；坐标 coordinate。</td></tr>
+            <tr><td><b>数论</b></td><td>质数 prime、因数 factor；3/9 看数字和；GCD/LCM 短除法；两数积=GCD×LCM；余数&lt;除数。</td></tr>
+            <tr><td><b>计数概率</b></td><td>加法/乘法原理；排列 A(n,m) 看顺序、组合 C(n,m) 不看；容斥；概率=有利÷总数。</td></tr>
+            <tr><td><b>应用逻辑</b></td><td>路程=速度×时间；工程总量看作 1；年龄差不变；鸡兔同笼用假设；列表、排除、逻辑推理。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 应试策略 ===== -->
+<section class="block" id="strategy">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">TEST STRATEGY</span>
+      <h2>40 分钟应试策略</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card" style="padding:24px 26px">
+        <h3 style="font-size:17px;color:var(--green-d);margin-bottom:14px">时间分配</h3>
+        <ul style="list-style:none">
+          <li style="padding:7px 0 7px 30px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:7px;color:var(--green);font-weight:900">1</span><b>1–15 题：</b>约 1 分钟/题，稳拿基础分。</li>
+          <li style="padding:7px 0 7px 30px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:7px;color:var(--green);font-weight:900">2</span><b>16–20 题：</b>约 1.5–2 分钟/题，理清关系。</li>
+          <li style="padding:7px 0 7px 30px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:7px;color:var(--green);font-weight:900">3</span><b>21–25 题：</b>约 3 分钟/题，攻坚。</li>
+          <li style="padding:7px 0 7px 30px;position:relative;font-size:14px"><span style="position:absolute;left:0;top:7px;color:var(--green);font-weight:900">4</span><b>检查：</b>预留约 5 分钟回查。</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card" style="padding:24px 26px;margin-bottom:16px">
+          <h3 style="font-size:17px;color:var(--green-d);margin-bottom:12px">答题技巧</h3>
+          <div style="font-size:14px;color:var(--ink-2)">
+            善用<b>排除法</b>（五选一，先排除明显错项）和<b>代入法</b>（把选项代回验证）；耗时长的题先标记跳过，保证基础题准确。错答不扣分，最后不会的也要合理猜测。
+          </div>
+        </div>
+        <div class="tip" style="margin-top:0"><b>给家长的话：</b>AMC8 是打开国际视野的窗口，不必为一时分数焦虑。先把基础打牢、把英文术语记熟，保持兴趣和信心，坚持系统训练，孩子一定会在更大的舞台上闪闪发光。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--green-d);color:rgba(255,255,255,.85);padding:34px 0;margin-top:50px">
+  <div class="wrap" style="text-align:center">
+    <div style="font-weight:900;color:#fff;font-size:17px;margin-bottom:8px">AMC8 · 小学全阶段知识点与解题方法全解</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.7)">打牢基础、接轨世界；享受思考，每一步都算数。</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script>
+(function(){
+  var chart = echarts.init(document.getElementById('chartWeight'));
+  var data = [
+    {name:'数与运算', v:22},
+    {name:'几何', v:22},
+    {name:'计数与概率', v:16},
+    {name:'代数', v:14},
+    {name:'数论', v:14},
+    {name:'应用与逻辑', v:12}
+  ];
+  var palette = ['#3F73B5','#7A5BA0','#D9A94E','#4A7FB5','#3BA47E','#EE8445'];
+  chart.setOption({
+    tooltip:{trigger:'item',formatter:'{b}：{c}%（{d}%）'},
+    legend:{type:'scroll',orient:'horizontal',bottom:0,textStyle:{color:'#4A555E',fontSize:12}},
+    series:[{
+      type:'pie',radius:['42%','68%'],center:['50%','46%'],
+      avoidLabelOverlap:true,
+      itemStyle:{borderColor:'#fff',borderWidth:2,borderRadius:6},
+      label:{show:true,formatter:'{b}\n{c}%',color:'#20282F',fontSize:12,fontWeight:600},
+      labelLine:{length:10,length2:12},
+      data:data.map(function(d,i){return {name:d.name,value:d.v,itemStyle:{color:palette[i]}};})
+    }]
+  });
+  window.addEventListener('resize',function(){chart.resize();});
+})();
+</script>
+</body>
+</html>
